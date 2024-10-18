@@ -20,6 +20,7 @@ public class Saint {
     private LocalDate dateOfBirth;
     private LocalDate dateOfDeath;
     private String picturePath;
+    private String biography;
 
 //    добавить таблицу со списком мест
 //    private List placesOfWorship;
