@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить статью</title>
+</head>
+<body>
+    <h1>Добавить статью</h1>
+    <form action="/biography/add" method="post" enctype="multipart/form-data">
+        <input type="file" id="imageInput" name="imageInput" accept="image/*">
+        <img id="preview" alt="Предпросмотр изображения">
+
+        <script>
+            const imageInput = document.getElementById('imageInput');
+            const preview = document.getElementById('preview');
+
+            imageInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        preview.src = event.target.result;
+                        preview.style.display = 'block'; // Показываем изображение
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
+
+
+        <input name="name" placeholder="Имя" type="text">
+        <input name="surName" placeholder="Фамилия" type="text">
+        <input name="fathersName" placeholder="Отчество" type="text">
+        <input name="dateOfBirth" placeholder="Дата рождения" type="date">
+        <input name="dateOfDeath" placeholder="Дата смерти" type="date">
+        <textarea name="biography" placeholder="Биография"></textarea>
+
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
