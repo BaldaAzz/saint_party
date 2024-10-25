@@ -1,7 +1,8 @@
 package com.example.SaintDima.controllers;
 
-import com.example.SaintDima.models.Saint;
-import com.example.SaintDima.services.SaintService;
+import com.example.SaintDima.models.SaintPerson;
+import com.example.SaintDima.services.SaintPersonService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,23 +22,25 @@ import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/biography")
+@RequiredArgsConstructor
 public class BiographyController {
 
     @Autowired
-    private SaintService saintService;
+    private SaintPersonService saintPersonService;
 
-    private static final String UPLOAD_DIRECTORY = "uploads/";
+    private static final String UPLOAD_DIRECTORY = "/images/";
 
 
     @GetMapping("/")
     public String biographyPage(Model model) {
 //        Добавить отображение всех данных из бд
-        return "biography";
+        model.addAttribute("biographies", saintPersonService.getListBiographies());
+        return "saint-persons-biography";
     }
 
     @GetMapping("/add")
     public String addBiography(Model model) {
-        return "addBiography";
+        return "add-biography";
     }
 
     @GetMapping("/{id}")
@@ -54,34 +57,25 @@ public class BiographyController {
                                   @RequestParam String biography,
                                   @RequestParam("imageInput") MultipartFile file,
                                   RedirectAttributes redirectAttributes,
-                                  Model model) {
+                                  Model model) throws IOException {
 
         if(file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Выбирете файл для загрузки!");
             return "redirect:/";
         }
 
-        try {
-            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            Path path = Paths.get(UPLOAD_DIRECTORY + fileName);
-            Files.createDirectories(path.getParent());
-            Files.write(path, file.getBytes());
+            SaintPerson saintPerson = new SaintPerson();
+            saintPerson.setName(name);
+            saintPerson.setSurname(surName);
+            saintPerson.setFathersName(fathersName);
+            saintPerson.setDateOfBirth(dateOfBirth);
+            saintPerson.setDateOfDeath(dateOfDeath);
+            saintPerson.setBiography(biography);
+            // поле image заполняется в сервисе
 
-            Saint saint = new Saint(name,
-                    surName,
-                    fathersName,
-                    dateOfBirth,
-                    dateOfDeath,
-                    biography,
-                    path.toString());
+            saintPersonService.createSaintBiography(saintPerson, file);
 
-            saintService.createSaintBiography(saint);
-
-            redirectAttributes.addFlashAttribute("message", "Файл успешно загружен!" + fileName);
-        }
-        catch (IOException e) {
-            redirectAttributes.addFlashAttribute("message", "Ошибка при загрузке файла!" + e.getMessage());
-        }
+            redirectAttributes.addFlashAttribute("message", "Файл успешно загружен!");
 
         return "redirect:/";
     }
