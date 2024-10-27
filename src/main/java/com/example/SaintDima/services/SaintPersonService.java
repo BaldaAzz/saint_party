@@ -34,10 +34,10 @@ public class SaintPersonService {
     public List<SaintPerson> getListBiographies() {
         return saintPersonRepository.findAll();
     }
-//    public SaintPerson getByIdSaintBiography(Long id) {
-//        return saintPersonRepository.findById(id).orElseThrow(
-//                () -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
-//    }
+    public SaintPerson getByIdSaintBiography(Long id) {
+        return saintPersonRepository.findById(id).orElseThrow(
+                () -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
+    }
 //
 //    public List<SaintPerson> getAllSaintsBiography() {
 //        return saintPersonRepository.findAll();
