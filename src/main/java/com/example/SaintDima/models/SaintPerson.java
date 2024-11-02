@@ -23,12 +23,12 @@ public class SaintPerson {
     private LocalDate dateOfBirth;
     private LocalDate dateOfDeath;
     private String biography;
+    private String rank;
+    private String region;
+    private String typeOfFeat;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
 
-    public void addImageToSaintPerson(Image image) {
-        image.setSaintPerson(this);
-    }
 //    добавить таблицу со списком мест
 //    private List placesOfWorship;
 

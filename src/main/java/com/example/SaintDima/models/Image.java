@@ -22,6 +22,4 @@ public class Image {
     private String contentType;
     @Lob
     private byte[] bytes;
-    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    private SaintPerson saintPerson;
 }
