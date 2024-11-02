@@ -1,5 +1,6 @@
 package com.example.SaintDima.services;
 
+import com.example.SaintDima.dto.SaintPersonDTO;
 import com.example.SaintDima.models.Image;
 import com.example.SaintDima.models.SaintPerson;
 import com.example.SaintDima.repositories.SaintPersonRepository;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -24,20 +27,38 @@ public class SaintPersonService {
 
         if(file.getSize() != 0) {
             image = toImageEntity(file);
-            saintPerson.addImageToSaintPerson(image);
             saintPerson.setImage(image);
         }
 
         saintPersonRepository.save(saintPerson);
     }
 
-    public List<SaintPerson> getListBiographies() {
-        return saintPersonRepository.findAll();
+    public List<SaintPersonDTO> getListBiographies() {
+        List<SaintPerson> saintPersonList = saintPersonRepository.findAll();
+        List<SaintPersonDTO> saintPersonDTOList = new ArrayList<>();
+
+        for(SaintPerson saintPerson : saintPersonList) {
+            saintPersonDTOList.add(convertToDTO(saintPerson));
+        }
+
+        return saintPersonDTOList;
     }
-    public SaintPerson getByIdSaintBiography(Long id) {
-        return saintPersonRepository.findById(id).orElseThrow(
-                () -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
+
+    public SaintPersonDTO getByIdSaintBiography(Long id) {
+        SaintPerson saintPerson = saintPersonRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
+        return convertToDTO(saintPerson);
+//        return saintPersonRepository.findById(id).orElseThrow(
+//                () -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
     }
+
+//    public List<SaintPerson> getFilteredProducts(String rank,
+//                                                 String region,
+//                                                 String typeOfFeat,
+//                                                 LocalDate minDate,
+//                                                 LocalDate maxDate) {
+//        return saintPersonRepository.findByFilters(rank, region, typeOfFeat, minDate, maxDate);
+//    }
 //
 //    public List<SaintPerson> getAllSaintsBiography() {
 //        return saintPersonRepository.findAll();
@@ -70,5 +91,24 @@ public class SaintPersonService {
         image.setSize(file.getSize());
         image.setBytes(file.getBytes());
         return image;
+    }
+
+    private SaintPersonDTO convertToDTO(SaintPerson saintPerson) {
+        SaintPersonDTO saintPersonDTO = new SaintPersonDTO();
+        saintPersonDTO.setId(saintPerson.getId());
+        saintPersonDTO.setName(saintPerson.getName());
+        saintPersonDTO.setSurname(saintPerson.getSurname());
+        saintPersonDTO.setFathersName(saintPerson.getFathersName());
+        saintPersonDTO.setDateOfBirth(saintPerson.getDateOfBirth());
+        saintPersonDTO.setDateOfDeath(saintPerson.getDateOfDeath());
+        saintPersonDTO.setBiography(saintPerson.getBiography());
+        saintPersonDTO.setRank(saintPerson.getRank());
+        saintPersonDTO.setRegion(saintPerson.getRegion());
+        saintPersonDTO.setTypeOfFeat(saintPerson.getTypeOfFeat());
+        if(saintPerson.getImage() != null) {
+            saintPersonDTO.setImageUrl("/images/" + saintPerson.getImage().getId());
+        }
+
+        return saintPersonDTO;
     }
 }
