@@ -4,13 +4,17 @@ import com.example.SaintDima.dto.SaintPersonDTO;
 import com.example.SaintDima.models.Image;
 import com.example.SaintDima.models.SaintPerson;
 import com.example.SaintDima.repositories.SaintPersonRepository;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -33,11 +37,16 @@ public class SaintPersonService {
         saintPersonRepository.save(saintPerson);
     }
 
-    public List<SaintPersonDTO> getListBiographies() {
-        List<SaintPerson> saintPersonList = saintPersonRepository.findAll();
+    public List<SaintPersonDTO> getFilteredListBiographies(String rank,
+                                                           String region,
+                                                           String typeOfFeat,
+                                                           int page,
+                                                           int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<SaintPerson> saintPersonList = saintPersonRepository.findByFilters(rank, region, typeOfFeat, pageable);
         List<SaintPersonDTO> saintPersonDTOList = new ArrayList<>();
 
-        for(SaintPerson saintPerson : saintPersonList) {
+        for(SaintPerson saintPerson : saintPersonList.getContent()) {
             saintPersonDTOList.add(convertToDTO(saintPerson));
         }
 
@@ -48,21 +57,8 @@ public class SaintPersonService {
         SaintPerson saintPerson = saintPersonRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
         return convertToDTO(saintPerson);
-//        return saintPersonRepository.findById(id).orElseThrow(
-//                () -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
     }
 
-//    public List<SaintPerson> getFilteredProducts(String rank,
-//                                                 String region,
-//                                                 String typeOfFeat,
-//                                                 LocalDate minDate,
-//                                                 LocalDate maxDate) {
-//        return saintPersonRepository.findByFilters(rank, region, typeOfFeat, minDate, maxDate);
-//    }
-//
-//    public List<SaintPerson> getAllSaintsBiography() {
-//        return saintPersonRepository.findAll();
-//    }
 //
 //    public SaintPerson updateSaintBiography(Long id, SaintPerson updatedSaintPerson) {
 //        SaintPerson executedSaintPerson = saintPersonRepository.findById(id).orElseThrow(
