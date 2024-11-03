@@ -27,25 +27,15 @@ public class BiographyController {
     private SaintPersonService saintPersonService;
 
     @GetMapping("/")
-    public String biographyPage(Model model) {
-//        Добавить отображение всех данных из бд
-//        model.addAttribute("biographies", saintPersonService.getListBiographies());
-
-//        Теперь данные будут отрисовываться с помощью js
+    public String biographyPage() {
+//        Данные отрисовываются с помощью js на самой странице
         return "saint-persons-biography";
     }
 
     @GetMapping("/add")
-    public String addBiography(Model model) {
+    public String addBiography() {
         return "add-biography";
     }
-
-//    @GetMapping("/{id}")
-//    public String getBiographyById(@PathVariable(value = "id") Long id, Model model) {
-//        SaintPerson saintPerson = saintPersonService.getByIdSaintBiography(id);
-//        model.addAttribute("saintPerson", saintPerson);
-//        return "biography";
-//    }
 
     @PostMapping("/add")
     public String createBiography(@RequestParam String name,
