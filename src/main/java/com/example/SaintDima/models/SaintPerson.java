@@ -28,10 +28,4 @@ public class SaintPerson {
     private String typeOfFeat;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
-
-//    добавить таблицу со списком мест
-//    private List placesOfWorship;
-
-//    добавить таблицу с событиями
-//    private List significantEvents;
 }
