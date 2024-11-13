@@ -1,18 +1,40 @@
-fetch('http://localhost:8080/api/biography/get_all')
-    .then(response => {
-        if(!response.ok) {
-            throw new Error("Error");
-        }
+const DOMEN = 'http://localhost:8080'
 
-        return response.json();
+
+fetch(DOMEN + '/api/biography/get') // Замените на URL вашего API
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Сеть не отвечает или произошла ошибка на сервере');
+        }
+        return response.json(); // Преобразуем ответ в JSON
     })
     .then(data => {
+
         console.log(data);
 
-        // Данные для отображения находятся в переменной data
-        // Формат json
-        
+        const container = document.getElementById('cardContainer');
+        const template = document.getElementById('cardTemplate');
+
+        data.forEach(item => {
+            const card = template.content.cloneNode(true);
+            const cardText = card.querySelector('.card-text');
+            const img = card.querySelector('img');
+            const viewButton = card.querySelector('.btn');
+
+            cardText.textContent = `${item.name} ${item.surname} (${item.rank}) - ${item.biography}`;
+            if(item.imageUrl) {
+                img.src = DOMEN + '/' + item.imageUrl
+            }
+            else {
+                img.src = item.imageUrl || '/img/no_photo.png';
+            }
+            
+            console.log(viewButton);
+            viewButton.href = DOMEN + '/biography/' + item.id;
+
+            container.appendChild(card);
+        });
     })
     .catch(error => {
-        console.error(error)
+        console.error('Ошибка:', error); // Обработка ошибок
     });
