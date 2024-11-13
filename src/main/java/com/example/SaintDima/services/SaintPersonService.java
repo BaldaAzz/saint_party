@@ -5,8 +5,6 @@ import com.example.SaintDima.models.Image;
 import com.example.SaintDima.models.SaintPerson;
 import com.example.SaintDima.repositories.SaintPersonRepository;
 
-import lombok.RequiredArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,7 +18,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-@RequiredArgsConstructor
 public class SaintPersonService {
 
     @Autowired
@@ -102,7 +99,7 @@ public class SaintPersonService {
         saintPersonDTO.setRegion(saintPerson.getRegion());
         saintPersonDTO.setTypeOfFeat(saintPerson.getTypeOfFeat());
         if(saintPerson.getImage() != null) {
-            saintPersonDTO.setImageUrl("/images/" + saintPerson.getImage().getId());
+            saintPersonDTO.setImageUrl("api/image/" + saintPerson.getImage().getId());
         }
 
         return saintPersonDTO;
