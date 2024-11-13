@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <style>
+  <!-- <style>
     body {
         font-family: Arial, sans-serif;
         margin: 20px;
@@ -43,7 +43,7 @@
     button:hover {
         background-color: #0056b3;
     }
-</style>
+</style> -->
 
 
 
@@ -82,28 +82,54 @@
     </form>
 
 
-    <div class="album py-5 bg-body-tertiary">
+    <!-- <div class="album py-5 bg-body-tertiary">
          <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-              <div class="card shadow-sm" th:each="biography : ${biographies}">
-               <img th:src="@{/images/{id}(id=${biography.image.id})}" alt="img">
-                <div class="card-body">
-                  <p class="card-text" th:text="${biography.name}"></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+            <template>
+              <div class="col">
+                <div class="card shadow-sm" th:each="biography : ${biographies}">
+                  <img src="../static/img/no_photo.jpg" th:src="@{/images/{id}(id=${biography.image.id})}" alt="img">
+                  <div class="card-body">
+                    <p class="card-text" th:text="${biography.name}"></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
                         <a th:href="@{/biography/{id}(id=${biography.id})}" class="btn btn-sm btn-outline-secondary">View</a>
+                      </div>
+                      <small class="text-body-secondary">9 mins</small>
                     </div>
-                    <small class="text-body-secondary">9 mins</small>
                   </div>
                 </div>
               </div>
-            </div>
-            </div>
-          </div>
+            </template>
+            
+
         </div>
-      </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script th:src="@{/js/saint-persons-biography.js}"></script>
+      </div> -->
+
+      <div class="container">
+        <div class="row" id="cardContainer"></div>
+        <template id="cardTemplate">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img alt="img">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-outline-secondary">View</a>
+                            </div>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Добавить пагинацию -->
+
+    <footer th:insert="blocks/footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/saint-persons-biography.js"></script>
 </body>
 </html>
