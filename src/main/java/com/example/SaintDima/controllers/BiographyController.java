@@ -1,5 +1,6 @@
 package com.example.SaintDima.controllers;
 
+import com.example.SaintDima.dto.SaintPersonDTO;
 import com.example.SaintDima.models.SaintPerson;
 import com.example.SaintDima.services.SaintPersonService;
 import lombok.RequiredArgsConstructor;
@@ -53,7 +54,6 @@ public class BiographyController {
 
         if(file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Выбирете файл для загрузки!");
-            return "redirect:/";
         }
 
             SaintPerson saintPerson = new SaintPerson();
@@ -73,5 +73,13 @@ public class BiographyController {
             redirectAttributes.addFlashAttribute("message", "Файл успешно загружен!");
 
         return "redirect:/";
+    }
+
+    @GetMapping("/{id}")
+    public String getSaintPersonById(@PathVariable(value = "id") Long id,
+                                     Model model) {
+        SaintPersonDTO saintPersonDTO = saintPersonService.getByIdSaintBiography(id);
+        model.addAttribute("saintPersonDTO", saintPersonDTO);
+        return "biography";
     }
 }

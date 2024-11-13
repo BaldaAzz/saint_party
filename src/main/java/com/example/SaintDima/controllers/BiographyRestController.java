@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/biography")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class BiographyRestController {
 
     @Autowired
@@ -27,9 +27,9 @@ public class BiographyRestController {
         return saintPersonService.getFilteredListBiographies(rank, region, typeOfFeat, page, size);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<SaintPersonDTO> getSaintPersonById(@PathVariable(value = "id") Long id) {
-        SaintPersonDTO saintPersonDTO = saintPersonService.getByIdSaintBiography(id);
-        return ResponseEntity.ok(saintPersonDTO);
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<SaintPersonDTO> getSaintPersonById(@PathVariable(value = "id") Long id) {
+//        SaintPersonDTO saintPersonDTO = saintPersonService.getByIdSaintBiography(id);
+//        return ResponseEntity.ok(saintPersonDTO);
+//    }
 }

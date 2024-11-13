@@ -10,4 +10,14 @@ public class MainController {
     public String getMainPage() {
         return "index";
     }
+
+    @GetMapping("/map")
+    public String getBelarusMapPage() {
+        return "map";
+    }
+
+    @GetMapping("/calendar")
+    public String getCalendarPage() {
+        return "calendar";
+    }
 }
