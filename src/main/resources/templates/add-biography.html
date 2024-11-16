@@ -1,110 +1,110 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Добавить статью</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container">
-    <header class="mb-4" th:insert="blocks/header"></header>
+    <head>
+        <meta charset="UTF-8">
+        <title>Добавить статью</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="container">
+        <header class="mb-4" th:insert="blocks/header"></header>
 
-    <h1 class="mb-5">Добавить статью</h1>
-    <form action="/biography/add" method="post" enctype="multipart/form-data">
-        <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">
-        <div class="row">
-            <img class="col" id="preview" alt="Предпросмотр изображения" style="height: 100%;">
+        <h1 class="mb-5">Добавить статью</h1>
+        <form action="/biography/add" method="post" enctype="multipart/form-data">
+            <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">
+            <div class="row">
+                <img class="col" id="preview" alt="Предпросмотр изображения" style="height: 100%;">
 
-            <div class="col">
-                <div class="row mb-2">
-                    <label class="col" for="name">Имя</label>
-                    <input class="col" id="name" name="name" placeholder="Имя" type="text">
-                </div>
-                
-                <div class="row mb-2">
-                    <label class="col" for="surName">Фамилия</label>
-                    <input class="col" id="surName" name="surName" placeholder="Фамилия" type="text">
-                </div>
-        
-                <div class="row mb-2">
-                    <label class="col" for="fathersName">Отчество</label>
-                    <input class="col" id="fathersName" name="fathersName" placeholder="Отчество" type="text">
-                </div>
-        
-                <div class="row mb-2">
-                    <label class="col" for="dateOfBirth">Дата рождения</label>
-                    <input class="col" id="dateOfBirth" name="dateOfBirth" placeholder="Дата рождения" type="date">
-                </div>
-        
-                <div class="row mb-2">
-                    <label class="col" for="dateOfDeath">Дата смерти</label>
-                    <input class="col" id="dateOfDeath" name="dateOfDeath" placeholder="Дата смерти" type="date">
-                </div>
+                <div class="col">
+                    <div class="row mb-2">
+                        <label class="col" for="name">Имя</label>
+                        <input class="col" id="name" name="name" placeholder="Имя" type="text">
+                    </div>
 
-                <div class="row mb-2">
-                    <label class="col" for="rank">Ранг:</label>
-                    <select class="col" id="rank" name="rank">
-                        <option value="">Выберите ранг</option>
-                        <option value="type1">Тип 1</option>
-                        <option value="type2">Тип 2</option>
-                        <option value="type3">Тип 3</option>
-                        <!-- Добавить остальные варианты -->
-                    </select>
-                </div>
+                    <div class="row mb-2">
+                        <label class="col" for="surName">Фамилия</label>
+                        <input class="col" id="surName" name="surName" placeholder="Фамилия" type="text">
+                    </div>
 
-                <div class="row mb-2">
-                    <label class="col" for="region">Регион:</label>
-                    <select class="col" id="region" name="region">
-                        <option value="">Выберите регион</option>
-                        <option value="region1">Регион 1</option>
-                        <option value="region2">Регион 2</option>
-                        <option value="region3">Регион 3</option>
-                        <!-- Добавьте остальные варианты -->
-                    </select>
-                </div>
+                    <div class="row mb-2">
+                        <label class="col" for="fathersName">Отчество</label>
+                        <input class="col" id="fathersName" name="fathersName" placeholder="Отчество" type="text">
+                    </div>
 
-                <div class="row mb-2">
-                    <label class="col" for="typeOfFeat">Тип подвига:</label>
-                    <select class="col" id="typeOfFeat" name="typeOfFeat">
-                        <option value="">Выберите тип подвига</option>
-                        <option value="type1">Тип 1</option>
-                        <option value="type2">Тип 2</option>
-                        <option value="type3">Тип 3</option>
-                        <!-- Добавьте остальные варианты -->
-                    </select>
-                </div>
+                    <div class="row mb-2">
+                        <label class="col" for="dateOfBirth">Дата рождения</label>
+                        <input class="col" id="dateOfBirth" name="dateOfBirth" placeholder="Дата рождения" type="date">
+                    </div>
 
-                <div class="row mb-2">
-                    <textarea name="biography" placeholder="Биография"></textarea>
+                    <div class="row mb-2">
+                        <label class="col" for="dateOfDeath">Дата смерти</label>
+                        <input class="col" id="dateOfDeath" name="dateOfDeath" placeholder="Дата смерти" type="date">
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col" for="rank">Ранг:</label>
+                        <select class="col" id="rank" name="rank">
+                            <option value="">Выберите ранг</option>
+                            <option value="type1">Тип 1</option>
+                            <option value="type2">Тип 2</option>
+                            <option value="type3">Тип 3</option>
+                            <!-- Добавить остальные варианты -->
+                        </select>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col" for="region">Регион:</label>
+                        <select class="col" id="region" name="region">
+                            <option value="">Выберите регион</option>
+                            <option value="region1">Регион 1</option>
+                            <option value="region2">Регион 2</option>
+                            <option value="region3">Регион 3</option>
+                            <!-- Добавьте остальные варианты -->
+                        </select>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col" for="typeOfFeat">Тип подвига:</label>
+                        <select class="col" id="typeOfFeat" name="typeOfFeat">
+                            <option value="">Выберите тип подвига</option>
+                            <option value="type1">Тип 1</option>
+                            <option value="type2">Тип 2</option>
+                            <option value="type3">Тип 3</option>
+                            <!-- Добавьте остальные варианты -->
+                        </select>
+                    </div>
+
+                    <div class="row mb-2">
+                        <textarea name="biography" placeholder="Биография"></textarea>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <script>
-            const imageInput = document.getElementById('imageInput');
-            const preview = document.getElementById('preview');
+            <script>
+                const imageInput = document.getElementById('imageInput');
+                const preview = document.getElementById('preview');
 
-            imageInput.addEventListener('change', function() {
-                const file = this.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        preview.src = event.target.result;
-                        preview.style.display = 'block'; // Показываем изображение
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-        </script>
+                imageInput.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            preview.src = event.target.result;
+                            preview.style.display = 'block'; // Показываем изображение
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
 
-        
 
-        
 
-        <button class="btn btn-primary row" type="submit">Add</button>
-    </form>
 
-    <footer th:insert="blocks/footer"></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+            <button class="btn btn-primary row" type="submit">Add</button>
+        </form>
+
+        <footer th:insert="blocks/footer"></footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

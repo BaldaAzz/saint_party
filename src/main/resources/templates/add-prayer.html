@@ -11,25 +11,22 @@
         
         <h1>Сборник молитв</h1>
 
-        <!-- Добавить болки с молитвами -->
-        
-        <div class="col">
-            <div class="card shadow-sm" th:each="prayer : ${prayers}">
-
-                <div class="card-body">
-                    <h2 class="card-text" th:text="${prayer.title}"></h2>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a class="btn btn-sm btn-outline-secondary">View</a>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
+        <form action="/prayers/add" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col">
+                    <div class="row mb-2">
+                        <label class="col" for="name">Название</label>
+                        <input class="col" id="title" name="title" placeholder="Название" type="text">
+                    </div>
+    
+                    <div class="row mb-2">
+                        <textarea name="prayer" placeholder="Текст молитвы"></textarea>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div >
-        </div>
+    
+            <button class="btn btn-primary row" type="submit">Add</button>
+        </form>
 
         <footer th:insert="blocks/footer"></footer>
 

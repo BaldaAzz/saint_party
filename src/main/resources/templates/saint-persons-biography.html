@@ -1,135 +1,135 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
 
-  <!-- <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 0;
-        background-color: #f9f9f9;
-    }
-    form {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    label {
-        margin-top: 10px;
-        display: block;
-    }
-    select, input[type="date"] {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    button {
-        margin-top: 15px;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: #0056b3;
-    }
-</style> -->
-
-
-
-    <header th:insert="blocks/header"></header>
+        <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+        select, input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        </style> -->
 
 
-    <form>
-      <label for="rank">Ранг:</label>
-      <select id="rank" name="rank">
-          <option value="">Выберите ранг</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <!-- Добавьте остальные варианты -->
-      </select>
 
-      <label for="region">Регион:</label>
-      <select id="region" name="region">
-          <option value="">Выберите регион</option>
-          <option value="region1">Регион 1</option>
-          <option value="region2">Регион 2</option>
-          <option value="region3">Регион 3</option>
-          <!-- Добавьте остальные варианты -->
-      </select>
-
-      <label for="type">Тип подвига:</label>
-      <select id="type" name="type">
-          <option value="">Выберите тип подвига</option>
-          <option value="type1">Тип 1</option>
-          <option value="type2">Тип 2</option>
-          <option value="type3">Тип 3</option>
-          <!-- Добавьте остальные варианты -->
-      </select>
-
-      <button type="submit">Применить фильтр</button>
-    </form>
+        <header th:insert="blocks/header"></header>
 
 
-    <!-- <div class="album py-5 bg-body-tertiary">
-         <div class="container">
-            <template>
-              <div class="col">
-                <div class="card shadow-sm" th:each="biography : ${biographies}">
-                  <img src="../static/img/no_photo.jpg" th:src="@{/images/{id}(id=${biography.image.id})}" alt="img">
-                  <div class="card-body">
-                    <p class="card-text" th:text="${biography.name}"></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <a th:href="@{/biography/{id}(id=${biography.id})}" class="btn btn-sm btn-outline-secondary">View</a>
-                      </div>
-                      <small class="text-body-secondary">9 mins</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </template>
-            
+        <form>
+            <label for="rank">Ранг:</label>
+            <select id="rank" name="rank">
+                <option value="">Выберите ранг</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <!-- Добавьте остальные варианты -->
+            </select>
 
-        </div>
-      </div> -->
+            <label for="region">Регион:</label>
+            <select id="region" name="region">
+                <option value="">Выберите регион</option>
+                <option value="region1">Регион 1</option>
+                <option value="region2">Регион 2</option>
+                <option value="region3">Регион 3</option>
+                <!-- Добавьте остальные варианты -->
+            </select>
 
-      <div class="container">
-        <div class="row" id="cardContainer"></div>
-        <template id="cardTemplate">
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img alt="img">
+            <label for="type">Тип подвига:</label>
+            <select id="type" name="type">
+                <option value="">Выберите тип подвига</option>
+                <option value="type1">Тип 1</option>
+                <option value="type2">Тип 2</option>
+                <option value="type3">Тип 3</option>
+                <!-- Добавьте остальные варианты -->
+            </select>
+
+            <button type="submit">Применить фильтр</button>
+        </form>
+
+
+        <!-- <div class="album py-5 bg-body-tertiary">
+            <div class="container">
+                <template>
+                <div class="col">
+                    <div class="card shadow-sm" th:each="biography : ${biographies}">
+                    <img src="../static/img/no_photo.jpg" th:src="@{/images/{id}(id=${biography.image.id})}" alt="img">
                     <div class="card-body">
-                        <p class="card-text"></p>
+                        <p class="card-text" th:text="${biography.name}"></p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-secondary">View</a>
+                        <div class="btn-group">
+                            <a th:href="@{/biography/{id}(id=${biography.id})}" class="btn btn-sm btn-outline-secondary">View</a>
+                        </div>
+                        <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </template>
+
+
+            </div>
+        </div> -->
+
+        <div class="container">
+            <div class="row" id="cardContainer"></div>
+            <template id="cardTemplate">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img alt="img">
+                        <div class="card-body">
+                            <p class="card-text"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-secondary">View</a>
+                                </div>
+                                <small class="text-body-secondary">9 mins</small>
                             </div>
-                            <small class="text-body-secondary">9 mins</small>
                         </div>
                     </div>
                 </div>
-            </div>
-        </template>
-    </div>
+            </template>
+        </div>
 
-    <!-- Добавить пагинацию -->
+        <!-- Добавить пагинацию -->
 
-    <footer th:insert="blocks/footer"></footer>
+        <footer th:insert="blocks/footer"></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/saint-persons-biography.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/saint-persons-biography.js"></script>
+    </body>
 </html>
