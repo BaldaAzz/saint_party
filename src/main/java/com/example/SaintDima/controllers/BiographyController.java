@@ -1,22 +1,16 @@
 package com.example.SaintDima.controllers;
 
 import com.example.SaintDima.dto.SaintPersonDTO;
-import com.example.SaintDima.models.SaintPerson;
 import com.example.SaintDima.services.SaintPersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 
 @Controller
@@ -55,22 +49,18 @@ public class BiographyController {
         if(file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Выбирете файл для загрузки!");
         }
+        saintPersonService.createSaintBiography(name,
+                surName,
+                fathersName,
+                dateOfBirth,
+                dateOfDeath,
+                biography,
+                rank,
+                region,
+                typeOfFeat,
+                file);
 
-            SaintPerson saintPerson = new SaintPerson();
-            saintPerson.setName(name);
-            saintPerson.setSurname(surName);
-            saintPerson.setFathersName(fathersName);
-            saintPerson.setDateOfBirth(dateOfBirth);
-            saintPerson.setDateOfDeath(dateOfDeath);
-            saintPerson.setBiography(biography);
-            saintPerson.setTypeOfFeat(typeOfFeat);
-            saintPerson.setRegion(region);
-            saintPerson.setRank(rank);
-            // поле image заполняется в сервисе
-
-            saintPersonService.createSaintBiography(saintPerson, file);
-
-            redirectAttributes.addFlashAttribute("message", "Файл успешно загружен!");
+        redirectAttributes.addFlashAttribute("message", "Файл успешно загружен!");
 
         return "redirect:/";
     }

@@ -4,8 +4,13 @@ import com.example.SaintDima.services.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/articles")
@@ -26,29 +31,12 @@ public class ArticleController {
         return "add-article";
     }
 
-//    @PostMapping("/add")
-//    public String createBiography(@RequestParam String title,
-//                                  @RequestParam String ,
-//                                  @RequestParam String fathersName,
-//                                  Model model) throws IOException {
-//
-//
-//        SaintPerson saintPerson = new SaintPerson();
-//        saintPerson.setName(name);
-//        saintPerson.setSurname(surName);
-//        saintPerson.setFathersName(fathersName);
-//        saintPerson.setDateOfBirth(dateOfBirth);
-//        saintPerson.setDateOfDeath(dateOfDeath);
-//        saintPerson.setBiography(biography);
-//        saintPerson.setTypeOfFeat(typeOfFeat);
-//        saintPerson.setRegion(region);
-//        saintPerson.setRank(rank);
-//        // поле image заполняется в сервисе
-//
-//        saintPersonService.createSaintBiography(saintPerson, file);
-//
-//        redirectAttributes.addFlashAttribute("message", "Файл успешно загружен!");
-//
-//        return "redirect:/";
-//    }
+    @PostMapping("/add")
+    public String createBiography(@RequestParam String title,
+                                  @RequestParam String content,
+                                  Model model) throws IOException {
+        articleService.createArticle(title, content);
+
+        return "redirect:/";
+    }
 }
