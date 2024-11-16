@@ -7,6 +7,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -23,5 +25,20 @@ public class ArticleService {
     public Article getArticleById(Long id) {
         return articleRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Статьи с id:" + id + " не найдено!"));
+    }
+
+    public void createArticle(String title, String content) {
+        Article article = createArticleObj(title, content);
+
+        articleRepository.save(article);
+    }
+
+    private Article createArticleObj(String title, String content) {
+        Article article = new Article();
+        article.setTitle(title);
+        article.setContent(content);
+        article.setDateOfCreating(LocalDate.now());
+
+        return article;
     }
 }

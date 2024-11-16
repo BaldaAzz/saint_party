@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -23,7 +24,27 @@ public class SaintPersonService {
     @Autowired
     private SaintPersonRepository saintPersonRepository;
 
-    public void createSaintBiography(SaintPerson saintPerson, MultipartFile file) throws IOException {
+    public void createSaintBiography(String name,
+                                     String surName,
+                                     String fathersName,
+                                     LocalDate dateOfBirth,
+                                     LocalDate dateOfDeath,
+                                     String biography,
+                                     String typeOfFeat,
+                                     String region,
+                                     String rank,
+                                     MultipartFile file) throws IOException {
+
+        SaintPerson saintPerson = createSaintPersonObj(name,
+                surName,
+                fathersName,
+                dateOfBirth,
+                dateOfDeath,
+                biography,
+                typeOfFeat,
+                region,
+                rank);
+
         Image image;
 
         if(file.getSize() != 0) {
@@ -56,25 +77,28 @@ public class SaintPersonService {
         return convertToDTO(saintPerson);
     }
 
-//
-//    public SaintPerson updateSaintBiography(Long id, SaintPerson updatedSaintPerson) {
-//        SaintPerson executedSaintPerson = saintPersonRepository.findById(id).orElseThrow(
-//                () -> new NoSuchElementException("Статья с id "+ id +" не найдена!"));
-//
-//        executedSaintPerson.setName(updatedSaintPerson.getName());
-//        executedSaintPerson.setSurname(updatedSaintPerson.getSurname());
-//        executedSaintPerson.setFathersName(updatedSaintPerson.getFathersName());
-//        executedSaintPerson.setBiography(updatedSaintPerson.getBiography());
-//        executedSaintPerson.setDateOfBirth(updatedSaintPerson.getDateOfBirth());
-//        executedSaintPerson.setDateOfDeath(updatedSaintPerson.getDateOfDeath());
-//        executedSaintPerson.setPicturePath(updatedSaintPerson.getPicturePath());
-//
-//        return saintPersonRepository.save(executedSaintPerson);
-//    }
-//
-//    public void deleteSaintBiography(Long id) {
-//        saintPersonRepository.deleteById(id);
-//    }
+    private SaintPerson createSaintPersonObj(String name,
+                                             String surName,
+                                             String fathersName,
+                                             LocalDate dateOfBirth,
+                                             LocalDate dateOfDeath,
+                                             String biography,
+                                             String typeOfFeat,
+                                             String region,
+                                             String rank) {
+        SaintPerson saintPerson = new SaintPerson();
+        saintPerson.setName(name);
+        saintPerson.setSurname(surName);
+        saintPerson.setFathersName(fathersName);
+        saintPerson.setDateOfBirth(dateOfBirth);
+        saintPerson.setDateOfDeath(dateOfDeath);
+        saintPerson.setBiography(biography);
+        saintPerson.setTypeOfFeat(typeOfFeat);
+        saintPerson.setRegion(region);
+        saintPerson.setRank(rank);
+
+        return saintPerson;
+    }
 
     private Image toImageEntity(MultipartFile file) throws IOException {
         Image image = new Image();
