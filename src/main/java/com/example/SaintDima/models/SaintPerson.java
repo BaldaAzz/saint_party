@@ -20,8 +20,8 @@ public class SaintPerson {
     private String name;
     private String surname;
     private String fathersName;
-    private LocalDate dateOfBirth;
-    private LocalDate dateOfDeath;
+    private Integer dateOfBirth;
+    private Integer dateOfDeath;
     private String biography;
     private String rank;
     private String region;
