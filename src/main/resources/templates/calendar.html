@@ -1,20 +1,842 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Календарь</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/common.css">
+        <link rel="stylesheet" href="/css/calendar.css">
     </head>
     <body>
-        <header class="mb-4" th:insert="blocks/header"></header>
-        <h1>Календарь</h1>
+        <header th:insert="blocks/header"></header>
+        <main>
+            <h1 class="page-title  container">Сборник молитв</h1>
+            <div class="mounth-calendar active-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Ноябрь<br>
+                            <span style="font-size:18px">2024</span>
+                        </li>
+                    </ul>
+                </div>
 
-        <!-- Добавить календарь -->
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Декабрь<br>
+                            <span style="font-size:18px">2024</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Январь<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li><span class="active" data-title="Рождество Христово (двунадесятый)">7</span></li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li><span class="active" data-title="Обрезание Господне (великий)">14</span></li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li><span class="active" data-title="Богоявление или Крещение Господне (двунадесятый)">19</span></li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Февраль<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li><span class="active" data-title="Неделя о Закхее-мытаре">2</span></li> 
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li><span class="active" data-title="Собор новомучеников и исповедников Российских">9</span></li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li><span class="active" data-title="Сретение Господне (двунадесятый)">15</span></li>
+                    <li><span class="active" data-title="Неделя о блудном сыне">16</span></li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li><span class="active" data-title="Вселенская родительская суббота (суббота перед неделей о Страшном Суде)">22</span></li>
+                    <li><span class="active" data-title="Неделя о Страшном Суде">23</span></li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Март<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li><span class="active" data-title="Воспоминание Адамова изгнания. Прощеное воскресенье">2</span></li>
+                    <li><span class="active" data-title="Начало Великого поста">3</span></li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li><span class="active" data-title="Торжество Православия">9</span></li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li><span class="active" data-title="Вселенская родительская суббота 2-й недели Великого поста">15</span></li>
+                    <li><span class="active" data-title="Неделя 2-я Великого поста, свт. Григория Паламы, архиеп. Солунского">16</span></li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li><span class="active" data-title="Вселенская родительская суббота 3-й недели Великого поста">22</span></li>
+                    <li><span class="active" data-title="Неделя 3-я Великого поста, Крестопоклонная">23</span></li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li><span class="active" data-title="Вселенская родительская суббота 4-й недели Великого поста">29</span></li>
+                    <li><span class="active" data-title="Неделя 4-я Великого поста, прп. Иоанна Лествичника">30</span></li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Апрель<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li><span class="active" data-title="Неделя 5-я Великого поста, прп. Марии Египетской">6</span></li>
+                    <li><span class="active" data-title="Благовещение Пресвятой Богородицы (двунадесятый)">7</span></li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li><span class="active" data-title="Лазарева суббота (суббота 6-й седмицы Великого поста)">12</span></li>
+                    <li><span class="active" data-title="Вход Господень в Иерусалим (двунадесятый)">13</span></li>
+                    <li><span class="active" data-title="Великий Понедельник">14</span></li>
+                    <li><span class="active" data-title="Великий Вторник">15</span></li>
+                    <li><span class="active" data-title="Великий Среда">16</span></li>
+                    <li><span class="active" data-title="Великий Четверг. Тайная Вечеря">17</span></li>
+                    <li><span class="active" data-title="Великая Пятница. Распятие Христа">18</span></li>
+                    <li><span class="active" data-title="Великая Суббота. Сошествие Христа во ад">19</span></li>
+                    <li><span class="active" data-title="Воскресение Христово. Пасха">20</span></li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li><span class="active" data-title="Неделя 2-я по Пасхе (Антипасха). Воспоминание уверения ап. Фомы">27</span></li>
+                    <li>28</li>
+                    <li><span class="active" data-title="Радоница (вторник 2-й седмицы по Пасхе)">29</span></li>
+                    <li>30</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Май<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li><span class="active" data-title="Неделя 3-я по Пасхе, святых жен-мироносиц">4</span></li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li><span class="active" data-title="Поминовение усопших воинов">9</span></li>
+                    <li>10</li>
+                    <li><span class="active" data-title="Неделя 4-я по Пасхе, о расслабленном">11</span></li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li><span class="active" data-title="Неделя 5-я по Пасхе, о самарянке">18</span></li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li><span class="active" data-title="Апостола и евангелиста Иоанна Богослова">21</span></li>
+                    <li><span class="active" data-title="Святителя Николая, архиепископа Мир Ликийских, чудотворца">22</span></li>
+                    <li><span class="active" data-title="Неделя 6-я по Пасхе, о слепом">23</span></li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li><span class="active" data-title="Вознесение Господне (40-й день по Пасхе, двунадесятый)">29</span></li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Июнь<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li><span class="active" data-title="Неделя 7-я по Пасхе, свв. отцев I Вселенского Собора">1</span></li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li><span class="active" data-title="Троицкая родительская суббота (суббота перед Троицей)">7</span></li>
+                    <li><span class="active" data-title="Пятидесятница. День Святой Троицы (50-й день по Пасхе, двунадесятый)">8</span></li>
+                    <li><span class="active" data-title="День Святого Духа (первый понедельник по Пятидесятнице)">9</span></li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li><span class="active" data-title="Неделя 1-я по Пятидесятнице, всех святых">15</span></li>
+                    <li><span class="active" data-title="Начало Петрова (Апостольского) поста">16</span></li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li><span class="active" data-title="Неделя 2-я по Пятидесятнице, всех святых, в земле Российской просиявших">22</span></li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Июль<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li><span class="active" data-title="Рождество Иоанна Предтечи (великий)">7</span></li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li><span class="active" data-title="Святых перв. апостолов Петра и Павла (великий)">12</span></li>
+                    <li>13</li>
+                    <li><span class="active" data-title="Начало Успенского поста">14</span></li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li><span class="active" data-title="Преображение Господне (двунадесятый)">19</span></li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li><span class="active" data-title="Успение Пресвятой Богородицы (двунадесятый)">28</span></li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Август<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Сентябрь<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li><span class="active" data-title="Усекновение главы Иоанна Предтечи (великий)">11</span></li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li><span class="active" data-title="Рождество Пресвятой Богородицы (двунадесятый)">21</span></li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li><span class="active" data-title="Воздвижение Креста Господня (двунадесятый)">27</span></li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Октябрь<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li><span class="active" data-title="Апостола и евангелиста Иоанна Богослова">9</span></li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li><span class="active" data-title="Покров Пресвятой Богородицы (великий)">14</span></li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Ноябрь<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li class="days--not-active"></li>
+                    <li><span class="active" data-title="Дмитриевская родительская суббота (суббота перед 8 ноября)">1</span></li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li><span class="active" data-title="Начало Рождественского поста">28</span></li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+            <div class="mounth-calendar">
+                <div class="month">
+                    <ul>
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                        <li>
+                            Декабрь<br>
+                            <span style="font-size:18px">2025</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+
+                <ul class="days">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li><span class="active" data-title="Введение во храм Пресвятой Богородицы (двунадесятый)">4</span></li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li><span class="active" data-title="Святителя Николая, архиепископа Мир Ликийских, чудотворца">19</span></li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+            </div>
+        </main>
+
+        <div class="tooltip"></div>
 
         <footer th:insert="blocks/footer"></footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/calendar.js"></script>
     </body>
 </html>

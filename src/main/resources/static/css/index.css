@@ -1,35 +1,169 @@
-.card {
-    height: 100%;
-    width: 200px;
-}
-
-.bg-image {
-
-    background-image: url("../img/main-page-bg.png");
-    height: 766px;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.bg-text {
-    height: 766px;
-    margin: auto 0;
-}
-
-.bg-image-text {
-    text-align: center;
+/* * {
     margin: 0;
-    color: #fff;
-    font-family: ;
-    font-size: large;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body, html {
+    height: 100%;
 }
 
-.page-head {
-    font-family: ;
-    font-size: 50pt;
-    font-weight: bold;
+.hero {
+    height: calc(100% - 60px - 50px); /* Высота блока с картинкой */
+    background-image: url('../img/church.png'); /* Фоновое изображение */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: stretch; /* Растягиваем элементы по высоте */
+    position: relative;
 }
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    width: 35%; /* Ширина блока с текстом */
+    height: 100%; /* Высота блока по высоте родителя */
+    padding: 20px; /* Отступы внутри блока */
+    display: flex; /* Flexbox для центрирования */
+    flex-direction: column; /* Вертикальное направление */
+    justify-content: center; /* Центрируем по вертикали */
+}
+
+h1, p {
+    color: #000000; /* Цвет текста */
+    margin-bottom: 10px; /* Отступы между элементами текста */
+    font-family: "Kurale", serif; /* Применяем шрифт Kurale */
+}
+
+.rectangle {
+    height: 50px; /* Высота прямоугольника */
+    background-color: #BAB5AB; /* Цвет прямоугольника */
+    width: 100%; /* Ширина на весь экран */
+}
+
+.main-p1{
+    color: #000000; /* Цвет текста */
+    margin-bottom: 10px; /* Отступы между элементами текста */
+    font-family: "Kurale", serif;
+}
+
+/* Новый стиль для блока с изображениями */
+.image-row {
+    position: relative; /* Для абсолютного позиционирования текста сверху */
+    display: flex; /* Flexbox для горизонтального ряда */
+    justify-content: space-between; /* Равномерное распределение изображений */
+}
+
+.image-container {
+    flex: 1; /* Каждое изображение занимает равное пространство */
+    height: 350px; /* Фиксированная высота контейнера */
+    overflow: hidden; /* Скрыть излишки изображения */
+}
+
+.image-container img {
+    width: 100%; /* Изображения занимают всю ширину контейнера */
+    height: 100%; /* Фиксированная высота */
+    object-fit: cover; /* Обеспечивает сохранение пропорций */
+}
+
+.overlay-background {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%; /* Высота на всю высоту изображений */
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
+    z-index: 1; /* Слой фона */
+}
+
+.overlay-text {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%); /* Центрируем по горизонтали и вертикали */
+    z-index: 2; /* Слой текста */
+    color: #333; /* Цвет текста */
+    font-family: "Kelly Slab", sans-serif; /* Применяем шрифт Kelly Slab */
+    font-weight: 1200;
+    font-style: normal;
+    font-size: 96px; /* Установим размер шрифта */
+    text-align: center; /* Центрируем текст */
+    width: 100%; /* Растягиваем текст по всей ширине */
+}
+
+
+/*статьи типо */
+/* Существующий CSS остается без изменений ... */
+
+/* Новый стиль для большого серого блока */
+.gray-block {
+    background-color: #D3D3D3; /* Светло-серый цвет */
+    padding:20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+}
+
+.block-header {
+    display: flex; /* Flexbox для горизонтального расположения заголовка и фотографии */
+    align-items: center; /* Центрируем по вертикали */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.block-title {
+    flex: 1; /* Заголовок занимает оставшееся пространство */
+    font-family: "Kelly Slab", sans-serif; /* Применяем шрифт Kelly Slab */
+    font-size: 36px; /* Размер шрифта заголовка */
+    margin: 0; /* Убираем отступы */
+    margin-left: 100px;
+}
+
+.small-photo {
+    width: 546px; /* Ширина небольшой фотографии */
+    height: 510px; /* Высота для сохранения пропорций, исправлено на px */
+    margin-left: 50px;
+    margin-right: 50px; /* Отступ слева от фотографии */
+    border-radius: 15px; /* Скругление углов */
+    object-fit: cover; /* Обеспечивает сохранение пропорций при обрезке */
+}
+.content-row {
+    display: flex; /* Flexbox для горизонтального расположения текста */
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+.content-text {
+    flex: 1; /* Текст занимает оставшееся пространство */
+    text-align: left; /* Выровнять текст по левому краю */
+}
+
+.styled-text {
+    font-family: 'Merriweather', serif; /* Применяем шрифт Merriweather */
+    font-style: italic; /* Делаем текст курсивным */
+    font-size: 32px;
+    font-weight: 400px;
+}
+
+/*горизонтальное фото*/
+.horizontal-photo-block {
+    position: relative; /* Для абсолютного позиционирования дочерних элементов */
+    width: 100%; /* Ширина на весь экран */
+    height: 350px;
+    overflow: hidden; /* Скрываем излишки изображения */
+}
+
+.overlay-full {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; /* Начинаем с верхней части */
+    left: 0; /* Начинаем с левой части */
+    right: 0; /* Растягиваем до правой части */
+    height: 350px; /* Высота на всю высоту блока */
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    z-index: 1; /* Слой фона выше изображения */
+}
+
+.horizontal-photo {
+    width: 100%; /* Растягиваем изображение по ширине */
+    height: 350px; /* Фиксированная высота */
+    object-fit: cover; /* Обеспечивает сохранение пропорций при обрезке */
+    z-index: 0; /* Устанавливаем слой изображения ниже */
+}
+

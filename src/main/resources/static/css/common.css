@@ -1,0 +1,139 @@
+
+
+body {
+    margin: 0;
+    background-color: #E0E0E0;
+}
+
+a, a:visited{
+    color: #000;
+}   
+
+
+
+/* Заголовок страницы */
+.page-title {
+    color: black;
+    font-size: 60px;
+    position: relative;
+    z-index: 2;
+    font-family: "Kaisei Decol", serif;
+}
+
+.container {
+    margin: 0 150px;
+    padding: 20px;
+}
+
+
+/* Кнопка */
+.btn {
+    width: 300px; /* Ширина кнопки такая же, как у dropdown */
+    padding: 10px; /* Отступы внутри кнопки */
+    border: 1px solid #D9D9D9; /* Рамка */
+    border-radius: 10px; /* Скругление углов */
+    background-color: #D9D9D9; /* Цвет фона */
+    font-size: 16px; /* Размер шрифта для кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.read-more-button {
+    padding: 10px; /* Отступы внутри кнопки */
+    border: 1px solid #D9D9D9; /* Рамка кнопки */
+    border-radius: 10px; /* Скругление углов кнопки */
+    background-color: #b1b1b1; /* Цвет фона кнопки */
+    font-size: 16px; /* Размер шрифта для кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 150px;
+    text-align: center  ;
+}
+
+
+
+/* Навигационное меню */
+.nav-menu {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: #BAB5AB;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.logo {
+    font-family: 'Kaisei Decol';
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 20.27px;
+    letter-spacing: 7px;
+    padding: 0;
+    margin: 0;
+
+}
+
+.nav-menu__link {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-menu__text {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+
+
+/*Футер*/
+.rectangle-back{
+    height: 60px; /* Высота прямоугольника */
+    background-color: #cdcbc6; /* Цвет прямоугольника */
+}
+
+.rectangle-back {
+    background-color: #D3D3D3; /* Цвет фона, если нужно */
+    padding: 20px; /* Отступы внутри блока */
+}
+
+.footer-content {
+    display: flex; /* Flexbox для горизонтального расположения */
+    align-items: center; /* Центрируем элементы по вертикали */
+    margin-left: 75px;
+}
+
+.footer-image {
+    width: 30px; /* Ширина изображения */
+    height: 30px; /* Автоматическая высота для сохранения пропорций */
+    margin-right: 20px; /* Отступ справа от изображения */
+}
+
+.footer-text {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение текста */
+}
+
+.footer-text p {
+    margin: 0; /* Убираем отступы между строками текста */
+    font-size: 16px; /* Размер шрифта текста */
+    color: #333; /* Цвет текста */
+}
+

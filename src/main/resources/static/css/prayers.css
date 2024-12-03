@@ -1,0 +1,48 @@
+.read-more {
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    background-color: #a9a9a9;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.prayer {
+    background-color: #D9D9D9;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.prayer h2 {
+    margin: 0 20px;
+}
+
+.read-more-button {
+    position: static;
+    margin: 0 20px;
+}
+
+.read-more:hover {
+    background-color: #808080; /* Темнее при наведении */
+}
+
+.background-image {
+    width: 100%; /* Занимает всю ширину */
+    height: 400px; /* Автоматическая высота */
+    opacity: 0.5; /* Полупрозрачность */
+}
+
+.additional-block {
+    background-color: #BAB5AB;
+    height: 560px;
+    background-image: url('../img/saint.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+}

@@ -1,55 +1,139 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Главная</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/css/index.css" rel="stylesheet">
-        <link href="../static/css/header.css" rel="stylesheet">
-        <link href="css/index.css" rel="stylesheet">
-        <link href="css/header.css" rel="stylesheet">
-    </head>
-    <body>
-        <header th:insert="blocks/header">
-        </header>
-        <section class="bg-image">
-                <p class="bg-image-text">Добавлять чистый воздух горнего мира дано молитве.</p>
-                <p class="bg-image-text">И молитва поручает поэзии быть её помощницей.</p>
-                <p class="bg-image-text">Архиепископ Иоанн Сан-Францисский</p>
-        </section>
-        <main class="container ">
-            <h2 class="page-head">"Все дороги ведут в храм"</h2>
-            
-            <div class="col mb-2">
-                <div class="card shadow-sm">
-                    <img class="img-thumbnail" src="" alt="img">
-                    <div class="card-body">
-                        <p class="card-text">Коложская Борисо-Глебская церковь</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="" class="btn btn-sm btn-outline-secondary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-2">
-                <div class="card shadow-sm">
-                    <img class="img-thumbnail" src="" alt="img">
-                    <div class="card-body">
-                        <p class="card-text">Свято-Покровский кафедральный собор</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="" class="btn btn-sm btn-outline-secondary">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+</head>
+<body>
+<header th:insert="blocks/header">
+</header>
+<div class="hero">
+    <div class="overlay">
+        <h1 class="main-h1">Добавлять чистый воздух горнего мира дано молитве.
+            И молитва поручает поэзии быть её.
+        </h1>
+        <p class="main-p1">
+            Архиепископ Иоанн Сан-Францисский
+        </p>
+    </div>
+</div>
+<div class="rectangle"></div>
 
-        <footer class="container" th:insert="blocks/footer">
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+<div class="image-row">
+    <div class="image-container">
+        <img src="img/PhotoHorizontal1.png" alt="Фото 1">
+    </div>
+    <div class="image-container">
+        <img src="img/PhotoHorizontal2.png" alt="Фото 2">
+    </div>
+    <div class="image-container">
+        <img src="img/PhotoHorizontal3.png" alt="Фото 3">
+    </div>
+    <div class="overlay-background"></div>
+    <p class="overlay-text">“ВСЕ ДОРОГИ ВЕДУТ В ХРАМ..”</p>
+</div>
+
+
+<div class="gray-block">
+    <div class="block-header">
+        <h2 class="block-title">Церковь Святого Михаила в Сынковичах</h2>
+    </div>
+    <div class="content-row">
+        <img class="small-photo" src="img/Article1.png" alt="Фото 4">
+        <div class="content-text">
+            <p class="styled-text">Коложская церковь, или Борисо-Глебский храм, находится в Гродно и является одной из старейших церквей Беларуси, построенной в XII веке. Точная дата постройки неизвестна, но предполагается, что она была возведена между 1130 и 1150 годами местными мастерами в стиле древнерусской архитектуры. Церковь выполнена из кирпича и камня, с характерными полукруглыми арками и небольшими окнами, что придаёт ей простоту и строгость.</p>
+        </div>
+    </div>
+    <div class="content-row">
+        <div class="content-text">
+            <p class="styled-text">Внутри храма сохранились древние фрески и иконы, а высокие своды создают атмосферу величия и спокойствия.
+                Коложская церковь также известна своим уникальным историческим контекстом, так как она была построена в период, когда Гродно играл важную роль в политической и культурной жизни региона. Храм посвящён святым Борису и Глебу, что отражает влияние христианства на формирование белорусской культуры.</p>
+        </div>
+        <img class="small-photo" src="img/Article2.png" alt="Фото 4">
+    </div>
+    <div class="content-row">
+        <img class="small-photo" src="img/Article3.png" alt="Фото 4">
+        <div class="content-text">
+            <p class="styled-text">Сегодня Коложская церковь является действующим храмом, где проводятся регулярные богослужения. Она активно восстанавливается и поддерживается в хорошем состоянии, привлекая туристов благодаря своей исторической и архитектурной ценности. В 1992 году церковь была внесена в список объектов культурного наследия, что подчеркивает её значимость для Беларуси. Также рядом с храмом находится живописный парк, который служит прекрасным местом для прогулок и отдыха, что делает эту локацию ещё более привлекательной для посетителей</p>
+        </div>
+    </div>
+</div>
+
+<div class="horizontal-photo-block">
+    <div class="overlay-full "></div>
+    <img src="img/ScrollChurch.png" alt="Горизонтальное фото" class="horizontal-photo">
+</div>
+
+<div class="gray-block">
+    <div class="block-header">
+        <h2 class="block-title">Церковь Святого Михаила в Сынковичах</h2>
+    </div>
+    <div class="content-row">
+        <img class="small-photo" src="img/Article4.png" alt="Фото 4">
+        <div class="content-text">
+            <p class="styled-text">Коложская церковь, или Борисо-Глебский храм, находится в Гродно и является одной из старейших церквей Беларуси, построенной в XII веке. Точная дата постройки неизвестна, но предполагается, что она была возведена между 1130 и 1150 годами местными мастерами в стиле древнерусской архитектуры. Церковь выполнена из кирпича и камня, с характерными полукруглыми арками и небольшими окнами, что придаёт ей простоту и строгость.</p>
+        </div>
+    </div>
+    <div class="content-row">
+        <div class="content-text">
+            <p class="styled-text">Внутри церкви можно увидеть высокие своды и богатое убранство. Иконостас, выполненный из дерева, украшен резьбой и позолотой, а стены храма оформлены фресками и иконами, создающими атмосферу духовности и благоговения. Храм служит не только религиозным центром, но и местом культурных мероприятий, что делает его важным элементом местной общины.</p>
+        </div>
+        <img class="small-photo" src="img/Article5.png" alt="Фото 4">
+    </div>
+    <div class="content-row">
+        <img class="small-photo" src="img/Article6.png" alt="Фото 4">
+        <div class="content-text">
+            <p class="styled-text">Сегодня Церковь Святого Михаила является действующим православным храмом и активно используется для проведения богослужений и церковных обрядов. Храм поддерживается местной общиной, что помогает сохранить его в хорошем состоянии. В 1990-х годах проводились работы по реставрации, что позволило восстановить утраченные элементы декора.</p>
+        </div>
+    </div>
+</div>
+
+<div class="horizontal-photo-block">
+    <div class="overlay-full "></div>
+    <img src="img/ScrollChurch2.png" alt="Горизонтальное фото" class="horizontal-photo">
+</div>
+
+<div class="gray-block">
+    <div class="block-header">
+        <h2 class="block-title">Свято-Успенский Жировичский монастырь</h2>
+    </div>
+    <div class="content-row">
+        <img class="small-photo" src="img/Article7.png" alt="Фото 4">
+        <div class="content-text">
+            <p class="styled-text">Свято-Успенский Жировичский монастырь расположен в деревне Жировичи, недалеко от Слонима в Гродненской области Беларуси. Он был основан в 1470 году. История монастыря начинается с того, что местные жители обнаружили икону Успения Богородицы, которая стала объектом почитания и привлекла множество паломников. Первоначально монастырь был построен из дерева, но со временем его здания были заменены каменными. Основными строителями монастыря были местные мастера, которые использовали традиционные архитектурные приемы.</p>
+        </div>
+    </div>
+    <div class="content-row">
+        <div class="content-text">
+            <p class="styled-text">Внутри Свято-Успенского Жировичского монастыря царит атмосфера духовности и благоговения. Главный алтарь украшен резным иконостасом с иконами святых, а высокие своды храма покрыты яркими фресками, изображающими библейские сцены. Стены дополнены иконами и росписями, создающими колоритный интерьер. Пол выложен плиткой или деревянными досками, а в монастыре также имеются крестильня и келии для монахов. Запах ладана и свечей наполняет пространство, придавая ему особую духовную атмосферу.</p>     </div>
+        <img class="small-photo" src="img/Article8.png" alt="Фото 4">
+    </div>
+    <div class="content-row">
+        <img class="small-photo" src="img/Article9.png" alt="Фото 4">
+        <div class="content-text">
+            <p class="styled-text">Сегодня монастырь является действующим, в нём живут монахи и проводятся регулярные богослужения. Монастырь привлекает паломников и туристов благодаря своей духовной значимости и архитектурной красоте. В последние годы проводятся работы по реставрации, что помогает сохранить его в хорошем состоянии. Жировичский монастырь также активно участвует в культурных и образовательных инициативах.</p>
+        </div>
+    </div>
+</div>
+
+<div class="horizontal-photo-block">
+    <div class="overlay-full "></div>
+    <img src="img/ScrollChurch3.png" alt="Горизонтальное фото" class="horizontal-photo">
+</div>
+
+<footer th:insert="blocks/footer">
+    <div class="rectangle-back">
+        <div class="footer-content">
+            <img src="img/CopyRight.png" alt="Изображение в подвале" class="footer-image">
+            <div class="footer-text">
+                <p>2024 Гродненский государственный колледж </p>
+                <p>техники, технологий и дизайна</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
 </html>

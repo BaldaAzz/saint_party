@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+a, a:visited {
+    color: black;
+}
+
+.hero {
+    position: relative;
+    height: 265px;
+    width: 100%;
+    background-image: url('../img/Stn.png'); /* Установлено изображение как фон */
+    backdrop-filter: blur(10px);
+    background-size: cover; /* Масштабируем изображение */
+    background-position: center; /* Центрируем изображение */
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    z-index: 1; /* Размещаем поверх изображения */
+}
+
+
+
+
+.hero {
+    overflow-x: hidden; /* Скрываем горизонтальный скролл */
+}
+
+.hero h2 {
+    color: black;
+    font-size: 30px; /* Размер заголовка */
+    position: relative; /* Устанавливаем контекст для z-index */
+    z-index: 2; /* Заголовок выше пленки */
+    top: 50%; /* Центрирование по вертикали */
+    left: 20px; /* Отступ слева */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    font-family: "Kaisei Decol", serif; /* Шрифт заголовка */
+    font-weight: 400;
+    font-style: normal;
+    margin: 0; /* Убираем отступы */
+    padding-left: 60px; /* Возможно, уменьшите этот отступ */
+    max-width: calc(100% - 80px); /* Убедитесь, что ширина не превышает родителя */
+    box-sizing: border-box; /* Учитываем отступы и рамки в ширине */
+}
+
+/*dropDown*/
+
+.container__element {
+    margin-bottom: 30px;
+}
+
+.message {
+    margin-bottom: 10px; /* Отступ снизу для фразы */
+    font-size: 18px; /* Размер шрифта для фразы */
+    margin-left: 20px;
+    font-family: "Kaisei Decol", serif;
+}
+
+.dropdown {
+    position: relative;
+    width: 100%; /* Задаем ширину контейнера dropdown */
+}
+
+.dropdown-label {
+    margin-bottom: 10px; /* Отступ снизу для метки */
+    font-size: 16px; /* Размер шрифта для метки */
+}
+
+.dropdown-select {
+    width: calc(100% - 20px); /* Задаем ширину на 20px меньше, чтобы оставить отступ */
+    padding: 10px; /* Отступы внутри выпадающего списка */
+    border: 1px solid #D9D9D9; /* Рамка */
+    border-radius: 10px; /* Скругление углов */
+    background-color: #D9D9D9; /* Цвет фона */
+    cursor: pointer; /* Указатель при наведении */
+    margin-left: 20px; /* Сдвиг вправо */
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+.apply-filters-btn {
+    margin-left: 20px; /* Сдвиг вправо */
+}
+
+.option{
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*карточки святых*/
+
+.saint {
+    margin-top: 0;
+}
+
+.saint-card {
+    display: flex; /* Используем flexbox для размещения фото и контента */
+    background-color: #D9D9D9; /* Цвет фона карточки */
+    border-radius: 10px; /* Скругление углов */
+    padding: 20px; /* Внутренние отступы */
+    margin: 30px auto; /* Центрируем карточку по горизонтали */
+    max-width: 1100px; /* Максимальная ширина карточки */
+    position: relative;
+}
+
+.saint-image {
+    width: 200px; /* Уменьшаем ширину изображения */
+    height: 250px; /* Уменьшаем высоту изображения */
+    border-radius: 10px; /* Скругление углов изображения */
+    margin-right: 20px; /* Отступ справа от изображения */
+}
+
+.saint-content {
+    flex-grow: 1; /* Позволяем контенту занимать оставшееся пространство */
+    position: relative; /* Устанавливаем контекст для кнопки */
+}
+
+.saint-phrase {
+    margin: 10px 0; /* Отступы между фразами */
+    font-size: 16px; /* Размер шрифта для фраз */
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rectangle {
+    width: 100%; /* Ширина прямоугольника */
+    height: 100px; /* Высота прямоугольника */
+    background-color: #BAB5AB; /* Цвет прямоугольника */
+     /* Отступы сверху и снизу */
+    border-radius: 5px; /* Скругление углов (по желанию) */
+}
+
+.button {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 20px;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.card-row {
+    display: flex;
+}
+
+.card-row__head {
+    margin-right: 10px;
+}

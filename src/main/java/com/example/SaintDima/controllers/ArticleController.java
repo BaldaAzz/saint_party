@@ -1,6 +1,7 @@
 package com.example.SaintDima.controllers;
 
 import com.example.SaintDima.models.Article;
+import com.example.SaintDima.repositories.ArticleRepository;
 import com.example.SaintDima.services.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,12 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
+    @Autowired
+    private ArticleRepository articleRepository;
 
     @GetMapping("/")
-    public String biographyPage() {
-//        Данные отрисовываются с помощью js на самой странице
+    public String biographyPage(Model model) {
+        model.addAttribute("articles", articleRepository.findAll());
         return "articles";
     }
 

@@ -1,0 +1,22 @@
+.saint-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.img-wrapper {
+    width: 370px;
+    margin-right: 25px;
+}
+
+.img-wrapper img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.point {
+    display: flex;
+}
+
+.point span {
+    margin: auto 0;;
+}

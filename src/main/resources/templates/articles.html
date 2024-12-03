@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Таинства</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/common.css">
+        <link rel="stylesheet" href="/css/articles.css">
     </head>
         <body>
-        <header class="mb-4" th:insert="blocks/header"></header>
+        <header th:insert="blocks/header"></header>
+        <main>
+            <h1 class="page-title  container">Таинства</h1>
 
-        <h1>Таинства</h1>
-
-        <!-- Добавить болки с новостями -->
-        <div class="col">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h2 class="card-text"></h2>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a class="btn btn-sm btn-outline-secondary">View</a>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
+                <div class="articles-list container">
+                    <div class="article" th:each="article : ${articles}">
+                        <h2 th:text="${article.title}">Таинство</h2>
+                        <a th:href="@{/articles/{id}(id=${article.id})}" class="read-more-button">Открыть</a>
                     </div>
                 </div>
-            </div>
-        </div>
-
+        </main>
         <footer th:insert="blocks/footer"></footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

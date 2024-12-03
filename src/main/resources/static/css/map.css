@@ -1,12 +1,21 @@
-.map__wrapper {
-    max-width: 1200px;
-    position: relative;
+main {
+    margin-bottom: 20px;
 }
-.map__wrapper img {
+
+.map-wrapper {
+    display: flex;                /* Используем flexbox */
+    justify-content: center;      /* Центрируем по горизонтали */
+    max-width: 1000px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.map-wrapper img {
     width: 100%;
     height: auto;
 }
-.map__wrapper svg {
+
+.map-wrapper svg {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,23 +23,95 @@
     height: 100%;
 }
 
-.map__wrapper svg path {
-    fill: none; /* Убираем обводку */
-    pointer-events: all; /* Разрешаем быть целью событий мыши */
-    cursor: pointer; /* Меняем курсор при наведении */
+.point {
+    fill: #fff;
+    stroke: #5E5D5A;
+    stroke-width: 8px;
+    cursor: pointer;
+    pointer-events: all;
 }
-.map__wrapper svg path:hover {
+
+.point:hover {
     animation: hoverElement 2s linear infinite; /* При наведении включаем анимацию */
 }
 
 @keyframes hoverElement { /* Сама анимация */
     0% {
-        stroke: #000000;
+        stroke: #5E5D5A;
     }
     50% {
-        stroke: #fc0000;
+        stroke: #FFFEE9;
     }
     100% {
-        stroke: #000000; 
+        stroke: #5E5D5A;
     }
+}
+
+.tooltip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: none;
+}
+
+.info__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: 0.3s all;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.info__bg.active {
+    pointer-events: all;
+    opacity: 1;
+    transition: 0.3s all;
+}
+
+.info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #E6E2E2;
+    border-radius: 10px;
+    padding: 25px;
+    width: 700px;
+
+}
+
+.info__photo {
+    width: 350px;
+    border-radius: 10px;
+}
+
+.info__wrapper {
+    position: relative;
+    display: flex;
+}
+
+.info__photo-wrapper, .info__text-wrapper {
+    margin: 10px;
+}
+
+.info__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border: rgba(0, 0, 0, 0);
+}
+
+.info__close-btn:hover {
+    cursor: pointer;
 }

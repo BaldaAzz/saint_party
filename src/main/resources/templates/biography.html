@@ -1,22 +1,47 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
     <head>
         <meta charset="UTF-8">
         <title>biography</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/common.css">
+        <link rel="stylesheet" href="/css/biography.css">
     </head>
     <body>
         <header th:insert="blocks/header"></header>
 
-        <h1>Биография</h1>
-        <h2 th:text="${saintPersonDTO.getName}"></h2>
-        <img th:src="@{'/' + ${saintPersonDTO.getImageUrl}}" alt="">
-        <p th:text="${saintPersonDTO.getBiography}"></p>
+        <main class="container">
+            <div class="saint-container">
+                <div class="img-wrapper">
+                    <img th:src="@{'/' + ${saintPersonDTO.getImageUrl}}" alt="">
+                </div>
+                <div>
+                    <h2 th:text="${saintPersonDTO.getName + ' ' + saintPersonDTO.getSurname + ' ' + saintPersonDTO.getFathersName}"></h2>
+                    <div class="point">
+                        <h3>Дата рождения:</h3>
+                        <span th:text="${saintPersonDTO.dateOfBirth}"></span>
+                    </div>
+                    <div class="point">
+                        <h3>Дата смерти:</h3>
+                        <span th:text="${saintPersonDTO.dateOfDeath}"></span>
+                    </div>
+                    <div class="point">
+                        <h3>Область:</h3>
+                        <span th:text="${saintPersonDTO.region}"></span>
+                    </div>
+                    <div class="point">
+                        <h3>Ранг:</h3>
+                        <span th:text="${saintPersonDTO.rank}"></span>
+                    </div>
+                    <div class="point">
+                        <h3>Тип подвига:</h3>
+                        <span th:text="${saintPersonDTO.typeOfFeat}"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <p th:text="${saintPersonDTO.biography}"></p>
+        </main>
 
         <footer th:insert="blocks/footer"></footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
