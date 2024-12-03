@@ -20,4 +20,9 @@ public class MainController {
     public String getCalendarPage() {
         return "calendar";
     }
+
+    @GetMapping("/check-yourself")
+    public String getCheckYourselfPage() {
+        return "check-yourself";
+    }
 }

@@ -8,3 +8,24 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+main {
+    display: flex;
+}
+
+.image-wrapper {
+    height: 400px;
+}
+
+.image-wrapper img {
+    border-radius: 20px;
+    height: 100%;
+}
+
+.content {
+    margin-left: 10px;
+}
+
+.content h2{
+    margin-top: 0;
+}

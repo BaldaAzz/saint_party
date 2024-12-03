@@ -13,9 +13,7 @@ function renderCards(data) {
         const saintName = card.querySelector('#saint-name');
         const dateOfBirth = card.querySelector('#date-of-birdth');
         const placeOfBirth = card.querySelector('#place-of-birth');
-        const dateOfDeath = card.querySelector('#date-of-death');
-        const typeOfFeat = card.querySelector('#type-of-feat');
-        const rank = card.querySelector('#rank');
+        const dateOfMemory = card.querySelector('#dateOfMemory');
         const img = card.querySelector('#image');
         const viewButton = card.querySelector('#btn');
 
@@ -28,10 +26,8 @@ function renderCards(data) {
 
         saintName.textContent = item.surname + ' ' + item.name + ' ' + item.fathersName;
         dateOfBirth.textContent = item.dateOfBirth;
-        placeOfBirth.textContent = item.region;
-        dateOfDeath.textContent = item.dateOfDeath;
-        typeOfFeat.textContent = item.typeOfFeat;
-        rank.textContent = item.rank;
+        placeOfBirth.textContent = item.placeOfBirth;
+        dateOfMemory.textContent = item.dateOfMemory;
 
         viewButton.href = DOMEN + '/biography/' + item.id;
 
@@ -53,25 +49,25 @@ function resetCardList() {
 function generateRequest(filter) {
     let request = '';
 
-    const rank = filter.querySelector('#rank').value;
-    const region =  filter.querySelector('#region').value;
-    const type = filter.querySelector('#type').value;
+    const place = filter.querySelector('#place').value;
+    const minBirthDate =  filter.querySelector('#minBirthDate').value;
+    const maxBirthDate = filter.querySelector('#maxBirthDate').value;
 
     
     const parametrs = new Array();
 
     parametrs.push('page=' + currntPage);
 
-    if(rank != '') {
-        parametrs.push('rank=' + rank);
+    if(place != '') {
+        parametrs.push('place=' + place);
     }
 
-    if(region != '') {
-        parametrs.push('region=' + region);
+    if(minBirthDate != '') {
+        parametrs.push('minBirthDate=' + minBirthDate);
     }
 
-    if(type != '') {
-        parametrs.push('typeOfFeat=' + type);
+    if(maxBirthDate != '') {
+        parametrs.push('maxBirthDate=' + maxBirthDate);
     }
 
     if(parametrs.length != 0) {

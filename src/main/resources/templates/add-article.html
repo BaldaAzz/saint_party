@@ -8,8 +8,10 @@
     <body class="container">
         <header class="mb-4" th:insert="blocks/header"></header>
         <h1 class="mb-5">Добавить статью</h1>
-        <form action="/articles/add" method="post">
+        <form action="/articles/add" method="post" enctype="multipart/form-data">
+            <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">
             <div class="row">
+                <img class="col" id="preview" alt="Предпросмотр изображения" style="height: 100%;">
                 <div class="col">
                     <div class="row mb-2">
                         <label class="col" for="title">Название статьи</label>
@@ -29,5 +31,21 @@
         <footer th:insert="blocks/footer"></footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const imageInput = document.getElementById('imageInput');
+            const preview = document.getElementById('preview');
+
+            imageInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        preview.src = event.target.result;
+                        preview.style.display = 'block'; // Показываем изображение
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
     </body>
 </html>

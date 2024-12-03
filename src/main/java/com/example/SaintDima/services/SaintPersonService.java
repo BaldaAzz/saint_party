@@ -28,40 +28,34 @@ public class SaintPersonService {
                                      String surName,
                                      String fathersName,
                                      Integer dateOfBirth,
-                                     Integer dateOfDeath,
+                                     String placeOfBirth,
+                                     Integer dateOView,
+                                     String placeOfView,
                                      String biography,
-                                     String typeOfFeat,
-                                     String region,
-                                     String rank,
+                                     String dateOfMemory,
                                      MultipartFile file) throws IOException {
 
         SaintPerson saintPerson = createSaintPersonObj(name,
                 surName,
                 fathersName,
                 dateOfBirth,
-                dateOfDeath,
+                placeOfBirth,
+                dateOView,
+                placeOfView,
                 biography,
-                typeOfFeat,
-                region,
-                rank);
-
-        Image image;
-
-        if(file.getSize() != 0) {
-            image = toImageEntity(file);
-            saintPerson.setImage(image);
-        }
+                dateOfMemory,
+                file);
 
         saintPersonRepository.save(saintPerson);
     }
 
-    public List<SaintPersonDTO> getFilteredListBiographies(String rank,
-                                                           String region,
-                                                           String typeOfFeat,
+    public List<SaintPersonDTO> getFilteredListBiographies(String place,
+                                                           Integer minBirthDate,
+                                                           Integer maxBirthDate,
                                                            int page,
                                                            int size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<SaintPerson> saintPersonList = saintPersonRepository.findByFilters(rank, region, typeOfFeat, pageable);
+        Page<SaintPerson> saintPersonList = saintPersonRepository.findByFilters(place, minBirthDate, maxBirthDate, pageable);
         List<SaintPersonDTO> saintPersonDTOList = new ArrayList<>();
 
         for(SaintPerson saintPerson : saintPersonList.getContent()) {
@@ -81,21 +75,29 @@ public class SaintPersonService {
                                              String surName,
                                              String fathersName,
                                              Integer dateOfBirth,
-                                             Integer dateOfDeath,
+                                             String placeOfBirth,
+                                             Integer dateOfView,
+                                             String placeOfView,
                                              String biography,
-                                             String typeOfFeat,
-                                             String region,
-                                             String rank) {
+                                             String dateOfMemory,
+                                             MultipartFile file) throws IOException {
         SaintPerson saintPerson = new SaintPerson();
         saintPerson.setName(name);
         saintPerson.setSurname(surName);
         saintPerson.setFathersName(fathersName);
         saintPerson.setDateOfBirth(dateOfBirth);
-        saintPerson.setDateOfDeath(dateOfDeath);
+        saintPerson.setPlaceOfBirth(placeOfBirth);
+        saintPerson.setDateOfView(dateOfView);
+        saintPerson.setPlaceOfView(placeOfView);
         saintPerson.setBiography(biography);
-        saintPerson.setTypeOfFeat(typeOfFeat);
-        saintPerson.setRegion(region);
-        saintPerson.setRank(rank);
+        saintPerson.setDateOfMemory(dateOfMemory);
+
+        Image image;
+
+        if(file.getSize() != 0) {
+            image = toImageEntity(file);
+            saintPerson.setImage(image);
+        }
 
         return saintPerson;
     }
@@ -117,11 +119,12 @@ public class SaintPersonService {
         saintPersonDTO.setSurname(saintPerson.getSurname());
         saintPersonDTO.setFathersName(saintPerson.getFathersName());
         saintPersonDTO.setDateOfBirth(saintPerson.getDateOfBirth());
-        saintPersonDTO.setDateOfDeath(saintPerson.getDateOfDeath());
+        saintPersonDTO.setPlaceOfBirth(saintPerson.getPlaceOfBirth());
+        saintPersonDTO.setDateOfView(saintPerson.getDateOfView());
+        saintPersonDTO.setPlaceOfView(saintPerson.getPlaceOfView());
         saintPersonDTO.setBiography(saintPerson.getBiography());
-        saintPersonDTO.setRank(saintPerson.getRank());
-        saintPersonDTO.setRegion(saintPerson.getRegion());
-        saintPersonDTO.setTypeOfFeat(saintPerson.getTypeOfFeat());
+        saintPersonDTO.setDateOfMemory(saintPerson.getDateOfMemory());
+
         if(saintPerson.getImage() != null) {
             saintPersonDTO.setImageUrl("api/image/" + saintPerson.getImage().getId());
         }

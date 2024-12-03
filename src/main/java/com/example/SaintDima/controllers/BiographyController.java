@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/biography")
@@ -37,11 +36,11 @@ public class BiographyController {
                                   @RequestParam String surName,
                                   @RequestParam String fathersName,
                                   @RequestParam Integer dateOfBirth,
-                                  @RequestParam Integer dateOfDeath,
+                                  @RequestParam String placeOfBirth,
+                                  @RequestParam Integer dateOfView,
+                                  @RequestParam String placeOfView,
                                   @RequestParam String biography,
-                                  @RequestParam String rank,
-                                  @RequestParam String region,
-                                  @RequestParam String typeOfFeat,
+                                  @RequestParam String dateOfMemory,
                                   @RequestParam("imageInput") MultipartFile file,
                                   RedirectAttributes redirectAttributes,
                                   Model model) throws IOException {
@@ -53,11 +52,11 @@ public class BiographyController {
                 surName,
                 fathersName,
                 dateOfBirth,
-                dateOfDeath,
+                placeOfBirth,
+                dateOfView,
+                placeOfView,
                 biography,
-                rank,
-                region,
-                typeOfFeat,
+                dateOfMemory,
                 file);
 
         redirectAttributes.addFlashAttribute("message", "Файл успешно загружен!");

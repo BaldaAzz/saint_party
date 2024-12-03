@@ -15,11 +15,11 @@
 </div>
 <form id="filter" class="container">
     <div class="container__element">
-        <p class="message">Ранг:</p>
+        <p class="message">Место рождения:</p>
         <div class="dropdown">
-            <label for="rank" class="dropdown-label"></label>
-            <select id="rank" name="rank" class="dropdown-select">
-                <option class="option" value="">Выберите ранг</option>
+            <label for="place" class="dropdown-label"></label>
+            <select id="place" name="place" class="dropdown-select">
+                <option class="option" value="">Не выбрано</option>
                 <option class="option" value="type1">1</option>
                 <option class="option" value="type2">2</option>
                 <option class="option" value="type3">3</option>
@@ -28,32 +28,22 @@
     </div>
 
     <div class="container__element">
-        <p class="message">Регион:</p>
+        <p class="message">Дата рождения от:</p>
         <div class="dropdown">
-            <label for="region" class="dropdown-label"></label>
-            <select id="region" name="region" class="dropdown-select">
-                <option class="option" value="">Выберите Регион</option>
-                <option class="option" value="region1">Регион 1</option>
-                <option class="option" value="region2">Регион 2</option>
-                <option class="option" value="region3">Регион 3</option>
-            </select>
+            <label for="minBirthDate" class="dropdown-label"></label>
+            <input class="dropdown-select" id="minBirthDate" name="minBirthDate" placeholder="" type="text">
         </div>
     </div>
 
     <div class="container__element">
-        <p class="message">Тип подвига:</p>
+        <p class="message">Дата рождения до:</p>
         <div class="dropdown">
-            <label for="type" class="dropdown-label"></label>
-            <select id="type" name="type" class="dropdown-select">
-                <option class="option" value="">Тип подвига</option>
-                <option class="option" value="type1">подвиг 1</option>
-                <option class="option" value="type2">подвиг 2</option>
-                <option class="option" value="type3">подвиг 3</option>
-            </select>
+            <label for="maxBirthDate" class="dropdown-label"></label>
+            <input class="dropdown-select" id="maxBirthDate" name="maxBirthDate" placeholder="" type="text">
         </div>
     </div>
 
-    <button class="btn apply-filters-btn" type="button" id="filter-btn">Применить фильтры</button> <!-- Кнопка добавлена здесь -->
+    <button class="btn apply-filters-btn" type="button" id="filter-btn">Применить фильтры</button>
 </form>
 
 <div id="card-list"></div>
@@ -68,20 +58,12 @@
                 <p id="date-of-birdth" class="saint-phrase">ав</p>
             </div>
             <div class="card-row">
-                <h4 class="card-row__head saint-phrase">Дата смерти:</h4>
-                <p id="date-of-death" class="saint-phrase">ав</p>
-            </div>
-            <div class="card-row">
                 <h4 class="card-row__head saint-phrase">Место рождения:</h4>
                 <p id="place-of-birth" class="saint-phrase">ва</p>
             </div>
             <div class="card-row">
-                <h4 class="card-row__head saint-phrase">Тип подвига:</h4>
-                <p id="type-of-feat" class="saint-phrase">ав</p>
-            </div>
-            <div class="card-row">
                 <h4 class="card-row__head saint-phrase">День памяти:</h4>
-                <p id="rank" class="saint-phrase">ав</p>
+                <p id="dateOfMemory" class="saint-phrase">ав</p>
             </div>
             <a id="btn" class="read-more-button btn" href="#">Узнать больше</a>
         </div>

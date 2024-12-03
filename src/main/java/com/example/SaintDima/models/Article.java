@@ -20,5 +20,6 @@ public class Article {
     private Long id;
     private String title;
     private String content;
-    private LocalDate dateOfCreating;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Image image;
 }

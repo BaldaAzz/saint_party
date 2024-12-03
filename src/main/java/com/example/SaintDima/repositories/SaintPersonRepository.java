@@ -11,11 +11,11 @@ import org.springframework.data.repository.query.Param;
 public interface SaintPersonRepository extends JpaRepository<SaintPerson, Long> {
 
     @Query("SELECT sp FROM SaintPerson sp " +
-            "WHERE (:rank IS NULL OR sp.rank = :rank) " +
-            "AND (:region IS NULL OR sp.region = :region) " +
-            "AND (:typeOfFeat IS NULL OR sp.typeOfFeat = :typeOfFeat)")
-    Page<SaintPerson> findByFilters(@Param("rank") String rank,
-                                    @Param("region") String region,
-                                    @Param("typeOfFeat") String typeOfFeat,
+            "WHERE (:placeOfBirth IS NULL OR sp.placeOfBirth = :placeOfBirth)" +
+            "AND  (:minDateOfBirth IS NULL OR sp.dateOfBirth >= :minDateOfBirth)" +
+            "AND  (:maxDateOfBirth IS NULL OR sp.dateOfBirth <= :maxDateOfBirth)")
+    Page<SaintPerson> findByFilters(@Param("placeOfBirth") String placeOfBirth,
+                                    @Param("minDateOfBirth") Integer minDateOfBirth,
+                                    @Param("maxDateOfBirth") Integer maxDateOfBirth,
                                     Pageable pageable);
 }

@@ -21,15 +21,9 @@ public class BiographyRestController {
     @GetMapping("/get")
     public List<SaintPersonDTO> getSaintPersons(@RequestParam(defaultValue = "0") int page,
                                                 @RequestParam(defaultValue = "10") int size,
-                                                @RequestParam(required = false) String rank,
-                                                @RequestParam(required = false) String region,
-                                                @RequestParam(required = false) String typeOfFeat) {
-        return saintPersonService.getFilteredListBiographies(rank, region, typeOfFeat, page, size);
+                                                @RequestParam(required = false) String place,
+                                                @RequestParam(required = false) Integer minBirthDate,
+                                                @RequestParam(required = false) Integer maxBirthDate) {
+        return saintPersonService.getFilteredListBiographies(place, minBirthDate, maxBirthDate, page, size);
     }
-
-//    @GetMapping("/{id}")
-//    public ResponseEntity<SaintPersonDTO> getSaintPersonById(@PathVariable(value = "id") Long id) {
-//        SaintPersonDTO saintPersonDTO = saintPersonService.getByIdSaintBiography(id);
-//        return ResponseEntity.ok(saintPersonDTO);
-//    }
 }

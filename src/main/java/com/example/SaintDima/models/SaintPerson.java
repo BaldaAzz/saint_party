@@ -21,11 +21,11 @@ public class SaintPerson {
     private String surname;
     private String fathersName;
     private Integer dateOfBirth;
-    private Integer dateOfDeath;
+    private String placeOfBirth;
+    private Integer dateOfView;
+    private String placeOfView;
     private String biography;
-    private String rank;
-    private String region;
-    private String typeOfFeat;
+    private String dateOfMemory;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
 }
