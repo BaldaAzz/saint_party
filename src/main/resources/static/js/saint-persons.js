@@ -24,7 +24,7 @@ function renderCards(data) {
             img.src = item.imageUrl || '/img/no_photo.png';
         }
 
-        saintName.textContent = item.surname + ' ' + item.name + ' ' + item.fathersName;
+        saintName.textContent = item.name + ' ' + item.surname;
         dateOfBirth.textContent = item.dateOfBirth;
         placeOfBirth.textContent = item.placeOfBirth;
         dateOfMemory.textContent = item.dateOfMemory;

@@ -14,8 +14,8 @@
                 <div class="img-wrapper">
                     <img th:src="@{'/' + ${saintPersonDTO.getImageUrl}}" alt="">
                 </div>
-                <div>
-                    <h2 th:text="${saintPersonDTO.getName + ' ' + saintPersonDTO.getSurname + ' ' + saintPersonDTO.getFathersName}"></h2>
+                <div class="text">
+                    <h2 th:text="${saintPersonDTO.getName + ' ' + saintPersonDTO.getSurname}"></h2>
                     <div class="point">
                         <h3>Дата рождения:</h3>
                         <span th:text="${saintPersonDTO.dateOfBirth}"></span>
@@ -32,14 +32,17 @@
                         <h3>Место преставления:</h3>
                         <span th:text="${saintPersonDTO.placeOfView}"></span>
                     </div>
-                    <div class="point">
-                        <h3>День памяти:</h3>
-                        <span th:text="${saintPersonDTO.dateOfMemory}"></span>
-                    </div>
+                    <!-- <div class="point">
+                        <h3>День памяти: <span th:text="${saintPersonDTO.dateOfMemory}"></span></h3>
+                        
+                    </div> -->
                 </div>
                 
             </div>
-            <p th:text="${saintPersonDTO.biography}"></p>
+            <p class="text-content">
+                <span class="day-of-memory" th:text="${'День памяти — '+ saintPersonDTO.dateOfMemory + '. '}"></span>
+                <span th:text="${saintPersonDTO.biography}"></span>
+            </p>
         </main>
 
         <footer th:insert="blocks/footer"></footer>

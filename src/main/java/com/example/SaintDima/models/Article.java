@@ -19,6 +19,7 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
+    @Lob
     private String content;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;

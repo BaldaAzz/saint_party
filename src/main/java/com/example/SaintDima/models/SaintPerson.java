@@ -24,6 +24,7 @@ public class SaintPerson {
     private String placeOfBirth;
     private Integer dateOfView;
     private String placeOfView;
+    @Lob
     private String biography;
     private String dateOfMemory;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

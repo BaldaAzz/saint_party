@@ -2,10 +2,13 @@ ul {list-style-type: none;}
 
 main {
     margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .month {
-    padding: 70px 25px;
+    padding: 10px 25px;
     width: 100%;
     background: #BAB5AB;
     text-align: center;
@@ -42,11 +45,13 @@ main {
     margin: 0;
     padding: 10px 0;
     background-color: #ddd;
+    display: flex;
+    justify-content: space-around;
 }
 
 .weekdays li {
     display: inline-block;
-    width: 13.6%;
+    width: 11.6%;
     color: #666;
     text-align: center;
 }
@@ -60,16 +65,10 @@ main {
 .days li {
     list-style-type: none;
     display: inline-block;
-    width: 13.6%;
+    width: 13.1%;
     text-align: center;
     margin-bottom: 5px;
     font-size:15px;
-}
-
-.days li .active {
-    padding: 5px;
-    background: #BAB5AB;
-    color: white;
 }
 
 /* Add media queries for smaller screens */
@@ -79,7 +78,6 @@ main {
 
 @media screen and (max-width: 420px) {
     .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
 }
 
 @media screen and (max-width: 290px) {
@@ -88,10 +86,10 @@ main {
 
 
 .mounth-calendar {
-    width: 1175px;
-    margin: 0 auto;
+    width: 289px;
+    margin: 0 2px;
     display: none;
-    margin-top: 10px;
+    margin-top: 4px;
 }
 
 .month {
@@ -101,6 +99,7 @@ main {
 .days {
     border-radius: 0 0 10px 10px;
     color: #777;
+    height: 140px;
 }
 
 .days--not-active {
@@ -119,4 +118,33 @@ main {
 
 .active-calendar {
     display: block;
+}
+
+.calendar-container {
+    display: flex;
+}
+
+.block {
+    width: 586px;
+    height: 536px;
+    margin: 0 2px;
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block h2 {
+    font-size: 75px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 0;
+    color: #403A28;
+}
+
+.active-day {
+    background-color: #BAB5AB;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
 }

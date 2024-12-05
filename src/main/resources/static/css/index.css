@@ -20,7 +20,7 @@ body, html {
 
 .overlay {
     background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
-    width: 35%; /* Ширина блока с текстом */
+    width: 33%; /* Ширина блока с текстом */
     height: auto; /* Высота блока по высоте родителя */
     padding: 20px; /* Отступы внутри блока */
     display: flex; /* Flexbox для центрирования */
@@ -29,9 +29,10 @@ body, html {
 }
 
 h1, p {
-    color: #000000; /* Цвет текста */
+    color: #403A28; /* Цвет текста */
     margin-bottom: 10px; /* Отступы между элементами текста */
-    font-family: "Kurale", serif; /* Применяем шрифт Kurale */
+    font-family: "Kurale", serif;
+    font-weight: 500; /* Применяем шрифт Kurale */
 }
 
 .rectangle {
@@ -41,7 +42,7 @@ h1, p {
 }
 
 .main-p1{
-    color: #000000; /* Цвет текста */
+    color: #403A28; /* Цвет текста */
     margin-bottom: 10px; /* Отступы между элементами текста */
     font-family: "Kurale", serif;
 }
@@ -81,13 +82,13 @@ h1, p {
     left: 50%; /* Центрируем по горизонтали */
     transform: translate(-50%, -50%); /* Центрируем по горизонтали и вертикали */
     z-index: 2; /* Слой текста */
-    color: #333; /* Цвет текста */
-    font-family: "Kelly Slab", sans-serif; /* Применяем шрифт Kelly Slab */
+    color: #403A28; /* Цвет текста */
     font-weight: 1200;
     font-style: normal;
     font-size: 96px; /* Установим размер шрифта */
     text-align: center; /* Центрируем текст */
     width: 100%; /* Растягиваем текст по всей ширине */
+    margin: auto;
 }
 
 
@@ -113,6 +114,7 @@ h1, p {
     font-size: 36px; /* Размер шрифта заголовка */
     margin: 0; /* Убираем отступы */
     margin-left: 100px;
+    color: #403A28;
 }
 
 .small-photo {
@@ -171,9 +173,22 @@ h1, p {
 .horizontal-photo-block-n {
     height: 800px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 0px 120px;
+}
+
+.horizontal-photo-block-n div {
+    display: contents;
 }
 
 .horizontal-photo-block-n .horizontal-photo_n {
+    height: 100%;
+}
+
+.img-wrapper {
+    height: 20px;
+}
+
+.img-wrapper img {
     height: 100%;
 }
