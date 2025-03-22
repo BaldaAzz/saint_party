@@ -13,9 +13,14 @@ import lombok.NoArgsConstructor;
 public class Prayer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
     @Lob
+    @Column(name = "prayer")
     private String prayer;
 }

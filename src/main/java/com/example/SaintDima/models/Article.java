@@ -16,11 +16,17 @@ import java.time.LocalDate;
 public class Article {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
     @Lob
+    @Column(name = "content")
     private String content;
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
 }
