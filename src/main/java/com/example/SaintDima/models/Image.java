@@ -2,24 +2,29 @@ package com.example.SaintDima.models;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "images")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
+
+    @NotBlank(message = "File name cannot be empty!")
+    @Column(name = "file_name", nullable = false)
     private String name;
-    private String originalFileName;
-    private Long size;
-    private String contentType;
-    @Lob
-    private byte[] bytes;
+
+    @NotBlank(message = "Path cannot be empty!")
+    @Column(name = "path", nullable = false)
+    private String path;
 }
