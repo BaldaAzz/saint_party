@@ -3,34 +3,28 @@ package com.example.SaintDima.services;
 
 import com.example.SaintDima.models.Prayer;
 import com.example.SaintDima.repositories.PrayerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@RequiredArgsConstructor
 public class PrayerService {
 
-    @Autowired
-    private PrayerRepository prayerRepository;
+    private final PrayerRepository prayerRepository;
 
-    public void createPrayer(String title, String text) {
-
-        Prayer prayer = createPrayerObj(title, text);
-
+    public void addPayer(Prayer prayer) {
         prayerRepository.save(prayer);
     }
 
-    public Prayer getPrayerById(Long id) {
-
-        return prayerRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Молитва ваша не найдена!"));
+    public List<Prayer> getAllPrayers() {
+        return prayerRepository.findAll();
     }
 
-    private Prayer createPrayerObj(String title, String text) {
-        Prayer prayer = new Prayer();
-        prayer.setTitle(title);
-        prayer.setPrayer(text);
-        return prayer;
+    public Prayer getPrayerById(Long id) {
+        return prayerRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Молитва не найдена!"));
     }
 }
