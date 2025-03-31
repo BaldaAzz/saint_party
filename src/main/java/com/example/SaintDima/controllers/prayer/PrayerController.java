@@ -16,8 +16,8 @@ public class PrayerController {
 
     private final PrayerService prayerService;
 
-    @GetMapping()
-    public String prayersPage(Model model) {
+    @GetMapping
+    public String showPrayerListPage(Model model) {
         List<Prayer> prayers = prayerService.getAllPrayers();
         model.addAttribute("prayers", prayers);
         return "prayer/prayer-list";

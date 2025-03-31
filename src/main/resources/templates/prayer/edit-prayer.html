@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновить</title>
+</head>
+<body>
+
+<form th:action="@{/moderation/prayers}" th:object="${prayer}" method="post">
+    <input type="hidden" th:field="${prayer.id}">
+
+    <div class="row">
+        <div class="col">
+            <div class="row mb-2">
+                <label class="col" for="title">Название</label>
+                <input class="col" id="title" th:field="${prayer.title}" placeholder="Название" type="text">
+                <span th:if="${#fields.hasErrors('title')}" th:errors="${prayer.title}"></span>
+            </div>
+
+            <div class="row mb-2">
+                <label>
+                    <textarea th:field="${prayer.text}" placeholder="Текст молитвы"></textarea>
+                </label>
+                <span th:if="${#fields.hasErrors('text')}" th:errors="${prayer.text}"></span>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary row" type="submit">Обновить</button>
+</form>
+
+</body>
+</html>

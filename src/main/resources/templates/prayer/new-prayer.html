@@ -11,8 +11,9 @@
         
         <h1>Сборник молитв</h1>
 
-        <form th:action="@{/prayers/add}" th:object="${prayer}" method="post">
+        <form th:action="@{/moderation/prayers}" th:object="${prayer}" method="post">
             <div class="row">
+
                 <div class="col">
                     <div class="row mb-2">
                         <label class="col" for="title">Название</label>

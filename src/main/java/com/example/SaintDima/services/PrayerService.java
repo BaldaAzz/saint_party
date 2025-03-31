@@ -15,7 +15,7 @@ public class PrayerService {
 
     private final PrayerRepository prayerRepository;
 
-    public void addPayer(Prayer prayer) {
+    public void createOrUpdatePrayer(Prayer prayer) {
         prayerRepository.save(prayer);
     }
 
@@ -26,5 +26,9 @@ public class PrayerService {
     public Prayer getPrayerById(Long id) {
         return prayerRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Молитва не найдена!"));
+    }
+
+    public void deletePrayer(Long id) {
+        prayerRepository.deleteById(id);
     }
 }
