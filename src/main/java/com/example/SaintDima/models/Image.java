@@ -22,7 +22,7 @@ public class Image {
 
     @NotBlank(message = "File name cannot be empty!")
     @Column(name = "file_name", nullable = false)
-    private String name;
+    private String fileName;
 
     @NotBlank(message = "Path cannot be empty!")
     @Column(name = "path", nullable = false)
