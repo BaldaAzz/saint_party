@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновить</title>
+</head>
+<body>
+
+<form th:action="@{/moderation/articles}" th:object="${article}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="${article.id}">
+    <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">
+
+    <div class="row">
+        <div class="col">
+            <div class="row mb-2">
+                <label class="col" for="title">Название</label>
+                <input class="col" id="title" th:field="${article.title}" placeholder="Название" type="text">
+                <span th:if="${#fields.hasErrors('title')}" th:errors="${article.title}"></span>
+            </div>
+
+            <div class="row mb-2">
+                <label>
+                    <textarea th:field="${article.text}" placeholder="Текст молитвы"></textarea>
+                </label>
+                <span th:if="${#fields.hasErrors('text')}" th:errors="${article.text}"></span>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary row" type="submit">Обновить</button>
+</form>
+
+</body>
+</html>

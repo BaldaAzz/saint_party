@@ -8,24 +8,26 @@
     <body class="container">
         <header class="mb-4" th:insert="blocks/header"></header>
         <h1 class="mb-5">Добавить статью</h1>
-        <form action="/articles/add" method="post" enctype="multipart/form-data">
+        <form th:action="@{/moderation/articles}" th:object="${article}" method="post" enctype="multipart/form-data">
             <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">
             <div class="row">
                 <img class="col" id="preview" alt="Предпросмотр изображения" style="height: 100%;">
                 <div class="col">
                     <div class="row mb-2">
                         <label class="col" for="title">Название статьи</label>
-                        <input class="col" id="title" name="title" placeholder="Название статьи" type="text">
+                        <input class="col" id="title" th:field="${article.title}" placeholder="Название статьи" type="text">
                     </div>
 
 
                     <div class="row mb-2">
-                        <textarea name="content" placeholder="Текст статьи"></textarea>
+                        <label>
+                            <textarea th:field="${article.text}" placeholder="Текст статьи"></textarea>
+                        </label>
                     </div>
                 </div>
             </div>
 
-            <button class="btn btn-primary row" type="submit">Add</button>
+            <button class="btn btn-primary row" type="submit">Добавить</button>
         </form>
 
         <footer th:insert="blocks/footer"></footer>
