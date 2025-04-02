@@ -28,7 +28,15 @@ public class ArticleService {
     }
 
     public void createOrUpdateArticle(Article article, MultipartFile file) throws IOException {
-        Image image = imageService.saveImage(file);
+        Image image = new Image();
+
+        if (!file.isEmpty()) {
+            image = imageService.saveImage(file);
+        } else {
+            image.setFileName("no-photo.png");
+            image.setPath("/img/");
+        }
+
         article.setImage(image);
         articleRepository.save(article);
     }

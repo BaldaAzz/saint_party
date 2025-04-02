@@ -8,6 +8,7 @@
 
 <form th:action="@{/moderation/articles}" th:object="${article}" method="post" enctype="multipart/form-data">
     <input type="hidden" th:field="${article.id}">
+    <img th:src="@{${article.getImage().getPath() + article.getImage().getFileName()}}">
     <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">
 
     <div class="row">
@@ -29,6 +30,23 @@
 
     <button class="btn btn-primary row" type="submit">Обновить</button>
 </form>
+
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const preview = document.getElementById('preview');
+
+    imageInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                preview.src = event.target.result;
+                preview.style.display = 'block'; // Показываем изображение
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
 
 </body>
 </html>
