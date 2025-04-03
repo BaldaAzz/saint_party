@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:action="@{/moderation/articles}" th:object="${article}" method="post" enctype="multipart/form-data">
+<form th:action="@{/moderation/articles/update}" th:object="${article}" method="post" enctype="multipart/form-data">
     <input type="hidden" th:field="${article.id}">
     <img th:src="@{${article.getImage().getPath() + article.getImage().getFileName()}}">
     <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">

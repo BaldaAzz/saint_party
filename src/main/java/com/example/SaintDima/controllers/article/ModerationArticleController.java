@@ -36,7 +36,7 @@ public class ModerationArticleController {
         return "article/edit-article";
     }
 
-    @PostMapping
+    @PostMapping("/new")
     public String addArticle(
             Model model,
             @ModelAttribute Article article,
@@ -44,20 +44,30 @@ public class ModerationArticleController {
             BindingResult bindingResult
     ) throws IOException {
         if (bindingResult.hasErrors()) {
-            if (article.getId() != null) {
-                return "redirect:/moderation/articles/" + article.getId() + "/edit";
-            }
-
             return "redirect:/moderation/articles/new";
         }
+        articleService.createArticle(article, file);
 
-        articleService.createOrUpdateArticle(article, file);
+        return "redirect:/moderation/articles";
+    }
+
+    @PostMapping("/update")
+    public String updateArticle(
+            Model model,
+            @ModelAttribute Article article,
+            @RequestParam("imageInput") MultipartFile file,
+            BindingResult bindingResult
+    ) throws IOException {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/moderation/articles/" + article.getId() + "/edit";
+        }
+        articleService.updateArticle(article, file);
 
         return "redirect:/moderation/articles";
     }
 
     @GetMapping("/{id}/delete")
-    public String deleteArticle(Model model, @PathVariable Long id) {
+    public String deleteArticle(Model model, @PathVariable Long id) throws IOException {
         articleService.deleteArticle(id);
         return "redirect:/moderation/articles";
     }

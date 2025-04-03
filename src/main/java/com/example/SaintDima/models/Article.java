@@ -32,6 +32,6 @@ public class Article {
     @Column(name = "content", nullable = false)
     private String text;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Image image;
 }

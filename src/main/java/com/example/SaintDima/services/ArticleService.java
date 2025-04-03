@@ -27,22 +27,34 @@ public class ArticleService {
                 .orElseThrow(() -> new NoSuchElementException("Статьи с id:" + id + " не найдено!"));
     }
 
-    public void createOrUpdateArticle(Article article, MultipartFile file) throws IOException {
-        Image image = new Image();
+    public void createArticle(Article article, MultipartFile file) throws IOException {
 
-        if (!file.isEmpty()) {
-            image = imageService.saveImage(file);
+        Image image = imageService.saveImage(file);
+        article.setImage(image);
+        articleRepository.save(article);
+
+    }
+
+    public void updateArticle(Article article, MultipartFile file) throws IOException {
+        Article oldArticle = articleRepository.findById(article.getId()).get();
+
+        Image image = null;
+
+        if (oldArticle.getImage() != null && file.isEmpty()) {
+            image = oldArticle.getImage();
         } else {
-            image.setFileName("no-photo.png");
-            image.setPath("/img/");
+            image = imageService.saveImage(file);
+            image.setId(oldArticle.getId());
+            imageService.deleteImage(oldArticle.getImage());
         }
 
         article.setImage(image);
         articleRepository.save(article);
     }
 
-    public void deleteArticle(Long id) {
-        // Добавить удаление фото, а так же записи из таблицы images
+    public void deleteArticle(Long id) throws IOException {
+        Article article = articleRepository.findById(id).get();
+        imageService.deleteImage(article.getImage());
         articleRepository.deleteById(id);
     }
 }
