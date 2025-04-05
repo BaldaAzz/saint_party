@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="biography : ${biographies}">
+              <td th:text="${biography.id}"></td>
+              <td th:text="${biography.name}"></td>
+              <td th:text="${biography.surname}"></td>
+              <td>
+                <a th:href="@{/moderation/biographies/{id}/edit(id=${biography.getId()})}">Update</a>
+              </td>
+              <td>
+                <a th:href="@{/moderation/biographies/{id}/delete(id=${biography.getId()})}">Delete</a>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -9,7 +9,7 @@
         <header class="mb-4" th:insert="blocks/header"></header>
 
         <h1 class="mb-5">Добавить статью</h1>
-        <form action="/biography/add" method="post" enctype="multipart/form-data">
+        <form th:action="@{/moderation/biographies/new}" th:object="${biography}" method="post" enctype="multipart/form-data">
             <input class="btn btn-primary" type="file" id="imageInput" name="imageInput" accept="image/*">
             <div class="row">
                 <img class="col" id="preview" alt="Предпросмотр изображения" style="height: 100%;">
@@ -17,63 +17,43 @@
                 <div class="col">
                     <div class="row mb-2">
                         <label class="col" for="name">Имя</label>
-                        <input class="col" id="name" name="name" placeholder="Имя" type="text">
+                        <input class="col" id="name" th:field="${biography.name}" placeholder="Имя" type="text">
                     </div>
 
                     <div class="row mb-2">
                         <label class="col" for="surName">Фамилия</label>
-                        <input class="col" id="surName" name="surName" placeholder="Фамилия" type="text">
-                    </div>
-
-                    <div class="row mb-2">
-                        <label class="col" for="fathersName">Отчество</label>
-                        <input class="col" id="fathersName" name="fathersName" placeholder="Отчество" type="text">
+                        <input class="col" id="surName" th:field="${biography.surname}" placeholder="Фамилия" type="text">
                     </div>
 
                     <div class="row mb-2">
                         <label class="col" for="dateOfBirth">Дата рождения</label>
-                        <input class="col" id="dateOfBirth" name="dateOfBirth" placeholder="Дата рождения" type="text">
+                        <input class="col" id="dateOfBirth" th:field="${biography.dateOfBirth}" placeholder="Дата рождения" type="text">
                     </div>
 
                     <div class="row mb-2">
                         <label class="col" for="placeOfBirth">Место рождения:</label>
-                        <select class="col" id="placeOfBirth" name="placeOfBirth">
-                            <option value=""></option>
-                            <option value="Туров">Туров</option>
-                            <option value="Полоцк">Полоцк</option>
-                            <option value="Суздаль">Суздаль</option>
-                            <option value="Новгород">Новгород</option>
-                            <option value="Остог">Остог</option>
-                            <option value="Могилёв">Могилёв</option>
-                            <option value="Слуцк">Слуцк</option>
-                            <option value="Пинск">Пинск</option>
-                            <option value="Овруч">Овруч</option>
-                            <option value="Зверки">Зверки</option>
-                            <option value="Нежин">Нежин</option>
-                            <option value="Городковичи">Городковичи</option>
-                            <option value="Шерстин">Шерстин</option>
-                            <option value="Коски">Коски</option>
-                            <option value="Севруки">Севруки</option>
-                        </select>
+                        <input type="text" th:field="${biography.placeOfBirth}" id="placeOfBirth">
                     </div>
 
                     <div class="row mb-2">
                         <label class="col" for="dateOfView">Дата представления</label>
-                        <input class="col" id="dateOfView" name="dateOfView" placeholder="Дата представления" type="text">
+                        <input class="col" id="dateOfView" th:field="${biography.dateOfView}" placeholder="Дата представления" type="text">
                     </div>
 
                     <div class="row mb-2">
                         <label class="col" for="placeOfView">Место представления</label>
-                        <input class="col" id="placeOfView" name="placeOfView" placeholder="Место представления" type="text">
+                        <input class="col" id="placeOfView" th:field="${biography.placeOfView}" placeholder="Место представления" type="text">
                     </div>
 
                     <div class="row mb-2">
                         <label class="col" for="dateOfMemory">Дата памяти</label>
-                        <input class="col" id="dateOfMemory" name="dateOfMemory" placeholder="Дата памяти" type="text">
+                        <input class="col" id="dateOfMemory" th:field="${biography.dateOfMemory}" placeholder="Дата памяти" type="text">
                     </div>
 
                     <div class="row mb-2">
-                        <textarea name="biography" placeholder="Биография"></textarea>
+                        <label>
+                            <textarea th:field="${biography.text}" placeholder="Биография"></textarea>
+                        </label>
                     </div>
                 </div>
             </div>

@@ -17,11 +17,11 @@ function renderCards(data) {
         const img = card.querySelector('#image');
         const viewButton = card.querySelector('#btn');
 
-        if(item.imageUrl) {
-            img.src = DOMEN + '/' + item.imageUrl;
+        if(item.image !== null) {
+            img.src = DOMEN + item.image.path + item.image.fileName;
         }
         else {
-            img.src = item.imageUrl || '/img/no_photo.png';
+            img.src = '/img/no-photo.png';
         }
 
         saintName.textContent = item.name + ' ' + item.surname;
@@ -29,15 +29,15 @@ function renderCards(data) {
         placeOfBirth.textContent = item.placeOfBirth;
         dateOfMemory.textContent = item.dateOfMemory;
 
-        viewButton.href = DOMEN + '/biography/' + item.id;
+        viewButton.href = DOMEN + '/biographies/' + item.id;
 
         cardsList.appendChild(card);
     });
 }
 
 function makeRequest(params) {
-    console.log(DOMEN + '/api/biography/get' + params);
-    return fetch(DOMEN + '/api/biography/get' + params)
+    console.log(DOMEN + '/api/biographies' + params);
+    return fetch(DOMEN + '/api/biographies' + params)
         .then(response => response.json());
 }
 

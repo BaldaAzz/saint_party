@@ -12,25 +12,25 @@
         <main class="container">
             <div class="saint-container">
                 <div class="img-wrapper">
-                    <img th:src="@{'/' + ${saintPersonDTO.getImageUrl}}" alt="">
+                    <img th:src="@{${biography.image.path + biography.image.fileName}}" alt="">
                 </div>
                 <div class="text">
-                    <h2 th:text="${saintPersonDTO.getName + ' ' + saintPersonDTO.getSurname}"></h2>
+                    <h2 th:text="${biography.name + ' ' + biography.surname}"></h2>
                     <div class="point">
                         <h3>Дата рождения:</h3>
-                        <span th:text="${saintPersonDTO.dateOfBirth}"></span>
+                        <span th:text="${biography.dateOfBirth}"></span>
                     </div>
                     <div class="point">
                         <h3>Место рождения:</h3>
-                        <span th:text="${saintPersonDTO.placeOfBirth}"></span>
+                        <span th:text="${biography.placeOfBirth}"></span>
                     </div>
                     <div class="point">
                         <h3>Дата представления:</h3>
-                        <span th:text="${saintPersonDTO.dateOfView}"></span>
+                        <span th:text="${biography.dateOfView}"></span>
                     </div>
                     <div class="point">
                         <h3>Место преставления:</h3>
-                        <span th:text="${saintPersonDTO.placeOfView}"></span>
+                        <span th:text="${biography.placeOfView}"></span>
                     </div>
                     <!-- <div class="point">
                         <h3>День памяти: <span th:text="${saintPersonDTO.dateOfMemory}"></span></h3>
@@ -40,8 +40,8 @@
                 
             </div>
             <p class="text-content">
-                <span class="day-of-memory" th:text="${'День памяти — '+ saintPersonDTO.dateOfMemory + '. '}"></span>
-                <span th:text="${saintPersonDTO.biography}"></span>
+                <span class="day-of-memory" th:text="${'День памяти — '+ biography.dateOfMemory + '. '}"></span>
+                <span th:text="${biography.text}"></span>
             </p>
         </main>
 
